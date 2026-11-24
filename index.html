@@ -9,28 +9,33 @@
 <style>
 /* VOICE: elegant, calm, few hues, lots of air — a jeweller's counter.
    IDEA: a velvet display tray in a silver shop; each product sits on its own velvet pad.
-   PICTURE: a large drawn silver ring with a stone on deep velvet, catching light.
+   PICTURE: a real silver ring photo on deep velvet; drawn jewellery as fallback.
    COLOUR and TYPE: oxblood velvet + polished silver + pearl rose accent; Marcellus titles, Jost text.
-   LAYOUT: header, hero tray, today's rate band, category chips + product grid, admin rate panel, footer; cart as a side drawer. */
-:root{color-scheme:light dark;--bg:light-dark(#f7f5f4,#120a0e);--ink:light-dark(#1f1519,#f2ecee);--muted:light-dark(#6d5f65,#b5a8ae);--card:light-dark(#fff,#1c1116);--line:light-dark(#e7dfe2,#36252c);--vel:#4a1426;--vel2:#2b0b16;--pearl:#e9a9bd;--btn:light-dark(#4a1426,#e9a9bd);--btnink:light-dark(#fff,#2b0b16)}
+   LAYOUT: offer bar, header, hero, rate band, new arrivals, shop grid, promises, size guide, tracking, about/contact, admin, footer. */
+:root{color-scheme:light dark;--bg:light-dark(#f7f5f4,#120a0e);--ink:light-dark(#1f1519,#f2ecee);--muted:light-dark(#6d5f65,#b5a8ae);--card:light-dark(#fff,#1c1116);--line:light-dark(#e7dfe2,#36252c);--vel:#4a1426;--vel2:#2b0b16;--pearl:#e9a9bd;--btn:light-dark(#4a1426,#e9a9bd);--btnink:light-dark(#fff,#2b0b16);--star:#d9a23a}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Jost,system-ui,sans-serif;overflow-x:clip}
 h1,h2,h3{font-family:Marcellus,Georgia,serif;font-weight:400;line-height:1.08;text-wrap:balance;margin:0}
+html{scroll-padding-top:80px;scroll-behavior:smooth}
 .band{padding:clamp(28px,4vw,64px) max(5vw,16px)}
 .wrap{max-width:1240px;margin:0 auto}
-button,input,select{font:inherit;font-size:16px}
+.sec-t{font-size:clamp(28px,3.4vw,40px);margin-bottom:8px}
+.sub{color:var(--muted);margin:0 0 20px;max-width:60ch}
+button,input,select,textarea{font:inherit;font-size:16px}
 button{cursor:pointer}
 :focus-visible{outline:3px solid var(--pearl);outline-offset:2px}
-.btn{min-height:44px;padding:10px 20px;border-radius:999px;border:0;background:var(--btn);color:var(--btnink);font-weight:600}
+.btn{min-height:44px;padding:10px 20px;border-radius:999px;border:0;background:var(--btn);color:var(--btnink);font-weight:600;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
 .btn.ghost{background:transparent;color:inherit;border:1.5px solid currentColor}
+.offer{background:var(--pearl);color:var(--vel2);text-align:center;font-size:14px;font-weight:500;padding:8px 16px}
 header{position:sticky;top:0;z-index:20;background:var(--vel2);color:#f4e9ed}
 header .wrap{display:flex;align-items:center;gap:16px;padding:10px max(5vw,16px);flex-wrap:wrap}
-.logo{font-family:Marcellus,serif;font-size:24px;letter-spacing:.02em;display:flex;align-items:center;gap:8px;color:#fff;text-decoration:none}
+.logo{font-family:Marcellus,serif;font-size:24px;display:flex;align-items:center;gap:8px;color:#fff;text-decoration:none}
 nav{display:flex;gap:18px;margin-left:auto;flex-wrap:wrap}
 nav a{color:#e6d3da;text-decoration:none;font-size:15px}
 nav a:hover{color:#fff}
-.cartbtn{min-height:44px;border-radius:999px;border:1.5px solid #e6d3da55;background:transparent;color:#fff;padding:8px 16px;display:flex;gap:8px;align-items:center}
+.hbtns{display:flex;gap:8px}
+.cartbtn{min-height:44px;border-radius:999px;border:1.5px solid #e6d3da55;background:transparent;color:#fff;padding:8px 14px;display:flex;gap:8px;align-items:center}
 .cartbtn b{background:var(--pearl);color:var(--vel2);border-radius:99px;padding:0 8px;font-size:14px}
 .hero{background:radial-gradient(120% 90% at 70% 40%,#6a1f37 0%,var(--vel) 45%,var(--vel2) 100%);color:#f6ecef}
 .hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:32px;align-items:center;min-height:440px}
@@ -41,43 +46,67 @@ nav a:hover{color:#fff}
 .hero .btn.ghost{background:transparent;color:#f2e6ea}
 .tray{position:relative;aspect-ratio:1.15;max-height:440px;width:100%}
 .tray svg{position:absolute;inset:0;width:100%;height:100%}
-@media(prefers-reduced-motion:no-preference){.spark{animation:tw 3.2s ease-in-out infinite}.spark:nth-of-type(2){animation-delay:1.1s}.spark:nth-of-type(3){animation-delay:2.2s}@keyframes tw{0%,100%{opacity:0}50%{opacity:1}}}
+.heroimg{position:absolute;inset:4% 6%;width:88%;height:92%;object-fit:cover;border-radius:24px;box-shadow:0 30px 60px #0008}
 .rate{background:var(--card);border-bottom:1px solid var(--line)}
 .rate .wrap{display:flex;gap:12px 32px;flex-wrap:wrap;align-items:baseline;padding:18px max(5vw,16px)}
 .rate strong{font-family:Marcellus,serif;font-size:26px;font-weight:400;white-space:nowrap}
 .rate span{color:var(--muted);font-size:15px}
-.shophead{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:18px}
-.shophead h2{font-size:clamp(30px,3.6vw,40px)}
-.search{min-height:44px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 18px;width:min(280px,100%)}
+.rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
+.rail .card{flex:0 0 min(240px,70vw);scroll-snap-align:start}
+.railnav{display:flex;gap:8px}
+.railnav button{min-width:44px;min-height:44px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:18px}
+.shophead{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+.search,.sort{min-height:44px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 18px}
+.search{width:min(260px,100%)}
 .chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:22px}
 .chips button{flex:none;min-height:44px;padding:8px 18px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
 .chips button[aria-pressed=true]{background:var(--btn);color:var(--btnink);border-color:transparent}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(230px,100%),1fr));gap:20px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
-.pad{background:radial-gradient(80% 80% at 50% 35%,#5d1a30,var(--vel2));aspect-ratio:1;display:block;border:0;padding:0;width:100%}
-.pad svg,.pad img,.th img{width:100%;height:100%;display:block;object-fit:cover}
-.heroimg{position:absolute;inset:4% 6%;width:88%;height:92%;object-fit:cover;border-radius:24px;box-shadow:0 30px 60px #0008}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;position:relative}
+.pad{background:radial-gradient(80% 80% at 50% 35%,#5d1a30,var(--vel2));aspect-ratio:1;display:block;border:0;padding:0;width:100%;overflow:hidden}
+.pad svg,.pad img,.th img,.th svg{width:100%;height:100%;display:block;object-fit:cover}
+.heart{position:absolute;top:10px;right:10px;width:44px;height:44px;border-radius:99px;border:0;background:#ffffffdd;color:#4a1426;display:grid;place-items:center}
+.heart[aria-pressed=true] svg{fill:#c23b5a;stroke:#c23b5a}
+.tag{position:absolute;top:12px;left:12px;background:var(--pearl);color:var(--vel2);font-size:13px;font-weight:600;padding:2px 10px;border-radius:99px}
 .card .info{padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px;flex:1}
 .card h3{font-size:19px}
 .meta{color:var(--muted);font-size:14px}
+.stars{color:var(--star);font-size:14px;letter-spacing:1px}
 .price{font-weight:600;font-size:18px;white-space:nowrap;margin-top:auto;padding-top:6px}
 .card .row{display:flex;justify-content:space-between;align-items:center;gap:8px}
 .add{min-height:44px;min-width:44px;border-radius:999px;border:1.5px solid var(--btn);background:transparent;color:var(--ink);padding:6px 14px;font-weight:600}
-.empty{color:var(--muted);padding:40px 0;text-align:center}
-.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:24px;border-top:1px solid var(--line)}
-.how h3{font-size:22px;margin-bottom:6px}
-.how p{margin:0;color:var(--muted)}
+.empty{color:var(--muted);padding:30px 0;text-align:center}
+.promise{background:var(--card);border-block:1px solid var(--line)}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:24px}
+.pgrid h3{font-size:21px;margin:10px 0 6px}
+.pgrid p{margin:0;color:var(--muted)}
+.pgrid svg{color:var(--btn)}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line)}
+td.n,th.n{text-align:right;white-space:nowrap}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px}
+.track{display:flex;gap:8px;flex-wrap:wrap}
+.track .inp{flex:1 1 220px}
+.status{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.status span{font-size:13px;padding:4px 10px;border-radius:99px;border:1px solid var(--line);color:var(--muted)}
+.status span.on{background:var(--btn);color:var(--btnink);border-color:transparent}
+.map{width:100%;height:280px;border:0;border-radius:18px;background:var(--line)}
 .admin{background:var(--vel2);color:#f2e6ea}
-.admin .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:32px;align-items:start}
-.admin h2{font-size:34px}
+.admin .two{align-items:start}
 .admin p{color:#d8c3cb}
 .fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:14px;background:#ffffff0d;border:1px solid #ffffff22;border-radius:18px;padding:20px}
 label{display:flex;flex-direction:column;gap:6px;font-size:14px}
 .inp{min-height:44px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:8px 12px;width:100%}
+textarea.inp{min-height:88px;resize:vertical}
 .admin .inp{background:#1a0710;border-color:#ffffff33;color:#fff}
 .fields .note{grid-column:1/-1;font-size:14px;color:#d8c3cb;margin:0}
+.olist{margin-top:20px;display:grid;gap:10px}
+.oitem{background:#ffffff0d;border:1px solid #ffffff22;border-radius:14px;padding:12px 14px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
 footer{background:#1a070e;color:#cdb8c0;font-size:15px}
-footer .wrap{display:flex;flex-wrap:wrap;gap:12px 40px;justify-content:space-between}
+footer .wrap{display:flex;flex-wrap:wrap;gap:20px 40px;justify-content:space-between}
+footer a{color:#f2e6ea}
 .social{display:flex;flex-wrap:wrap;gap:8px}.social a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 14px;border:1px solid #ffffff2e;border-radius:999px;color:#f2e6ea;text-decoration:none;font-size:14px}.social a:hover{background:#ffffff14}
 .demo{font-size:13px;color:#a8939b}
 .scrim{position:fixed;inset:0;background:#0009;z-index:40;display:none}
@@ -89,100 +118,146 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 40px;justify-content:space-bet
 .x{min-width:44px;min-height:44px;border:0;background:transparent;color:var(--ink);font-size:26px}
 .dbody{overflow-y:auto;padding:16px 20px;flex:1}
 .line{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
-.line .th{border-radius:12px;overflow:hidden;background:var(--vel2)}
+.line .th{border-radius:12px;overflow:hidden;background:var(--vel2);aspect-ratio:1}
 .qty{display:flex;align-items:center;gap:4px}
 .qty button{min-width:36px;min-height:36px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
 .sum{padding:14px 20px;border-top:1px solid var(--line);display:grid;gap:6px}
-.sum div{display:flex;justify-content:space-between}
+.sum>div{display:flex;justify-content:space-between}
 .sum .tot{font-weight:600;font-size:19px}
 .modal{position:fixed;inset:0;z-index:60;display:none;place-items:center;padding:16px}
 .modal.on{display:grid}
-.box{background:var(--bg);border-radius:20px;max-width:760px;width:100%;max-height:92vh;overflow-y:auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-.box .pad{border-radius:0}
+.box{background:var(--bg);border-radius:20px;max-width:880px;width:100%;max-height:92vh;overflow-y:auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.gal{display:flex;flex-direction:column;gap:8px;padding:12px}
+.zoom{border-radius:14px;cursor:zoom-in}
+.zoom img{transition:transform .2s}
+.zoom.z{cursor:zoom-out}.zoom.z img{transform:scale(2.2)}
+.thumbs{display:flex;gap:8px}
+.thumbs button{width:64px;height:64px;border-radius:10px;overflow:hidden;border:2px solid transparent;padding:0;background:var(--vel2)}
+.thumbs button[aria-pressed=true]{border-color:var(--pearl)}
+.thumbs img{width:100%;height:100%;object-fit:cover;display:block}
 .box .txt{padding:22px;display:flex;flex-direction:column;gap:10px}
 .box h2{font-size:30px}
 .brk{font-size:14px;color:var(--muted);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
 .brk div{display:flex;justify-content:space-between;gap:8px}
+.lnk{background:none;border:0;padding:0;color:inherit;text-decoration:underline;font-size:14px;min-height:32px;text-align:left}
+.rev{border-top:1px solid var(--line);padding-top:12px;margin-top:6px;display:grid;gap:10px}
+.rev .r{font-size:14px;border-bottom:1px solid var(--line);padding-bottom:8px}
 .form{display:grid;gap:12px}
 .pay{display:flex;gap:8px;flex-wrap:wrap}
-.pay label{flex-direction:row;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:8px 14px;min-height:44px}
+.pay label,.chk{flex-direction:row;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:8px 14px;min-height:44px}
+.code{display:flex;gap:8px}
+.ok{color:#2c8a52;font-size:14px}.bad{color:#c23b5a;font-size:14px}
 .msg{white-space:pre-wrap;font-size:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;max-height:220px;overflow:auto}
-.wa{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;background:#1f8f4e;color:#fff}
-@media(max-width:760px){.hero .wrap,.admin .wrap,.box{grid-template-columns:minmax(0,1fr)}.hero .wrap{min-height:0}.tray{max-height:320px}nav{display:none}.logo{margin-right:auto}}
+.wa{background:#1f8f4e;color:#fff}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.drawer,.zoom img{transition:none}}
+@media(max-width:860px){nav{display:none}.logo{margin-right:auto}}
+@media(max-width:760px){.hero .wrap,.two,.box{grid-template-columns:minmax(0,1fr)}.hero .wrap{min-height:0}.tray{max-height:320px}}
 </style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <linearGradient id="sv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#c9ced6"/><stop offset=".6" stop-color="#8a9099"/><stop offset=".8" stop-color="#e4e7ec"/><stop offset="1" stop-color="#9aa0a8"/></linearGradient>
-<radialGradient id="gl" cx=".35" cy=".3" r=".7"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></radialGradient>
 <radialGradient id="sh" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#000" stop-opacity=".45"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
 </defs></svg>
 
+<div class="offer" id="offer">Free delivery above Rs 10,000 · Use code EID10 for 10% off</div>
 <header><div class="wrap">
 <a class="logo" href="#top"><svg width="26" height="26" viewBox="0 0 40 40"><path d="M28 6a15 15 0 1 0 6 22A12 12 0 1 1 28 6z" fill="url(#sv)"/></svg>Chandni Silver</a>
-<nav><a href="#shop">Shop</a><a href="#how">How pricing works</a><a href="#admin">Admin</a></nav>
-<button class="cartbtn" id="openCart" aria-label="Open cart">Cart <b id="ccount">0</b></button>
+<nav><a href="#new">New</a><a href="#shop">Shop</a><a href="#size">Size guide</a><a href="#track">Track order</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+<div class="hbtns"><button class="cartbtn" id="openWish" aria-label="Wishlist">♡ <b id="wcount">0</b></button><button class="cartbtn" id="openCart" aria-label="Open cart">Cart <b id="ccount">0</b></button></div>
 </div></header>
 
 <section class="hero band" id="top"><div class="wrap">
 <div>
 <h1>Pure 925 silver jewellery, priced by today's rate</h1>
-<p>Rings, jhumkay, necklaces, bracelets and payal, handmade in silver. Every price is worked out from the item's weight and today's silver rate, so you always pay a fair price.</p>
-<div class="acts"><a class="btn" href="#shop" style="text-decoration:none;display:inline-flex;align-items:center">Shop now</a><a class="btn ghost" href="#how" style="text-decoration:none;display:inline-flex;align-items:center">How pricing works</a></div>
+<p>Rings, jhumkay, necklaces, bracelets and payal in sterling silver. Every price comes from the item's weight and today's silver rate, so you always pay a fair price.</p>
+<div class="acts"><a class="btn" href="#shop">Shop now</a><a class="btn ghost" href="#new">New arrivals</a></div>
 </div>
 <div class="tray">
-<svg viewBox="0 0 400 350" role="img" aria-label="Silver ring with a ruby stone on a velvet tray">
+<svg viewBox="0 0 400 350" aria-hidden="true">
 <defs><radialGradient id="vp" cx=".5" cy=".55" r=".55"><stop offset="0" stop-color="#7a2642"/><stop offset="1" stop-color="#3a0f1e"/></radialGradient></defs>
-<ellipse cx="200" cy="270" rx="185" ry="62" fill="#22070f"/>
 <ellipse cx="200" cy="262" rx="180" ry="58" fill="url(#vp)"/>
-<ellipse cx="200" cy="268" rx="120" ry="22" fill="url(#sh)"/>
-<ellipse cx="200" cy="200" rx="105" ry="72" fill="none" stroke="#5c6068" stroke-width="30"/>
 <ellipse cx="200" cy="196" rx="105" ry="72" fill="none" stroke="url(#sv)" stroke-width="26"/>
-<path d="M110 172 Q200 120 290 172" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="4" stroke-linecap="round"/>
-<path d="M170 132 L200 92 L230 132 L200 146 Z" fill="url(#sv)"/>
 <path d="M176 100 L200 60 L224 100 L200 128 Z" fill="#b0244a"/>
-<path d="M176 100 L200 60 L200 128 Z" fill="#e0547a"/>
-<path d="M188 86 L200 68 L204 92 Z" fill="#fff" fill-opacity=".7"/>
-<g fill="#fff"><path class="spark" d="M300 70l4 12 12 4-12 4-4 12-4-12-12-4 12-4z"/><path class="spark" d="M95 120l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/><path class="spark" d="M250 50l2 7 7 2-7 2-2 7-2-7-7-2 7-2z"/></g>
 </svg>
 <img class="heroimg" id="heroImg" src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1000&h=860&q=75" alt="Silver ring in a box">
 </div>
 </div></section>
 
 <div class="rate"><div class="wrap">
-<strong id="rateTola">—</strong>
-<span id="rateGram">—</span>
-<span>Today's silver rate · updated by admin</span>
+<strong id="rateTola">—</strong><span id="rateGram">—</span><span>Today's silver rate · updated by admin</span>
 </div></div>
 
-<section class="band" id="shop"><div class="wrap">
-<div class="shophead"><h2>The collection</h2><input class="search" id="q" type="search" placeholder="Search rings, jhumkay…" aria-label="Search products"></div>
+<section class="band" id="new"><div class="wrap">
+<div class="shophead"><div><h2 class="sec-t">New arrivals</h2><p class="sub" style="margin:0">Fresh pieces added this week.</p></div>
+<div class="railnav"><button id="rPrev" aria-label="Previous">‹</button><button id="rNext" aria-label="Next">›</button></div></div>
+<div class="rail" id="rail"></div>
+</div></section>
+
+<section class="band" id="shop" style="padding-top:0"><div class="wrap">
+<div class="shophead"><h2 class="sec-t">The collection</h2>
+<div class="tools"><input class="search" id="q" type="search" placeholder="Search rings, jhumkay…" aria-label="Search products">
+<select class="sort" id="sort" aria-label="Sort"><option value="">Sort: featured</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option><option value="w">Weight: light first</option></select></div></div>
 <div class="chips" id="chips"></div>
 <div class="grid" id="grid"></div>
-<p class="demo" style="margin-top:18px">Demo: sample products, free photos from Unsplash. The shop's own photos will replace them.</p>
+<p class="meta" style="margin-top:18px">Demo: sample products, free photos from Unsplash. The shop's own photos will replace them.</p>
 </div></section>
 
-<section class="band" id="how"><div class="wrap how">
-<div><h3>1. Weight</h3><p>Every piece is weighed in grams and the weight is shown on its card.</p></div>
-<div><h3>2. Today's rate</h3><p>Weight × today's silver rate per gram (1 tola = 11.664 g).</p></div>
-<div><h3>3. Making</h3><p>A fixed making charge per piece is added. Delivery is free above Rs 10,000.</p></div>
+<section class="band promise"><div class="wrap pgrid">
+<div><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v6c0 4-3 7.5-7 9-4-1.5-7-5-7-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><h3>925 silver guarantee</h3><p>Every piece is 92.5% sterling silver and carries the 925 stamp. If it isn't, you get your full money back.</p></div>
+<div><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12a8 8 0 1 0 2.3-5.6"/><path d="M4 4v4h4"/></svg><h3>7-day exchange</h3><p>Size not right? Exchange within 7 days of delivery, unused and in its box.</p></div>
+<div><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="7" width="12" height="9" rx="1"/><path d="M14.5 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg><h3>Cash on delivery</h3><p>COD all over Pakistan, or pay by JazzCash or Easypaisa.</p></div>
+<div><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="9" width="17" height="11" rx="1"/><path d="M2.5 9h19M12 9v11M12 9c-2-4-6-4-6-1.5S10 9 12 9c2 0 6 1 6-1.5S14 5 12 9"/></svg><h3>Gift wrapping</h3><p>Add a velvet gift box at checkout and we'll pack it ready to give.</p></div>
 </div></section>
 
-<section class="band admin" id="admin"><div class="wrap">
-<div><h2>Admin: today's rate</h2><p>Change the silver rate here and every price on the site updates at once. In the full store this panel will sit behind a login and save to the database.</p></div>
+<section class="band" id="size"><div class="wrap">
+<h2 class="sec-t">Size guide</h2>
+<p class="sub">Measure the inside of a ring or bangle that already fits you, edge to edge, in millimetres. Then pick the size below. Still unsure? Send us a photo on WhatsApp.</p>
+<div class="two">
+<div class="panel"><h3 style="font-size:22px;margin-bottom:8px">Rings (US size)</h3><table><thead><tr><th>Size</th><th class="n">Inside width</th></tr></thead><tbody>
+<tr><td>6</td><td class="n">16.5 mm</td></tr><tr><td>7</td><td class="n">17.3 mm</td></tr><tr><td>8</td><td class="n">18.1 mm</td></tr><tr><td>9</td><td class="n">18.9 mm</td></tr><tr><td>10</td><td class="n">19.8 mm</td></tr></tbody></table></div>
+<div class="panel"><h3 style="font-size:22px;margin-bottom:8px">Bangles</h3><table><thead><tr><th>Size</th><th class="n">Inside width</th></tr></thead><tbody>
+<tr><td>2.4</td><td class="n">57 mm</td></tr><tr><td>2.6</td><td class="n">60 mm</td></tr><tr><td>2.8</td><td class="n">64 mm</td></tr></tbody></table>
+<p class="meta" style="margin:10px 0 0">Bracelets: S fits a 15 cm wrist, M 17 cm, L 19 cm.</p></div>
+</div></div></section>
+
+<section class="band promise" id="track"><div class="wrap two">
+<div><h2 class="sec-t">Track your order</h2><p class="sub">Enter your order number (like CS-1234) or the phone number you ordered with.</p></div>
+<div class="panel"><form class="track" id="tform"><input class="inp" id="tq" placeholder="CS-1234 or 03xx xxxxxxx" aria-label="Order number or phone" required><button class="btn">Track</button></form><div id="tres" style="margin-top:12px"></div></div>
+</div></section>
+
+<section class="band" id="about"><div class="wrap two">
+<div><h2 class="sec-t">About Chandni Silver</h2>
+<p>We are a family silver shop making and selling 925 sterling silver jewellery. Every piece is weighed in front of you, priced by the day's rate, and stamped 925.</p>
+<p>Bridal sets, daily rings or a gift for someone special: come to the shop, or order online and get it at your door.</p></div>
+<div id="contact"><h2 class="sec-t">Contact</h2>
+<p>Shop 12, Silver Market, Saddar, Karachi<br>Open Mon–Sat, 11 am – 9 pm<br>WhatsApp: <span id="waText">—</span></p>
+<iframe class="map" title="Shop location" loading="lazy" src="https://www.google.com/maps?q=Saddar%20Karachi&output=embed"></iframe>
+<p class="meta">Sample address for the demo.</p></div>
+</div></section>
+
+<section class="band admin" id="admin"><div class="wrap two">
+<div><h2 class="sec-t">Admin</h2><p>Change the silver rate and every price updates at once. Set the discount code, and move orders along so customers can track them. In the full store this panel sits behind a login and saves to the database.</p></div>
+<div>
 <div class="fields">
 <label>Silver rate per tola (Rs)<input class="inp" id="aRate" type="number" min="0" step="10" inputmode="numeric"></label>
 <label>Delivery charge (Rs)<input class="inp" id="aDel" type="number" min="0" step="10" inputmode="numeric"></label>
 <label>WhatsApp number for orders<input class="inp" id="aWa" type="tel" placeholder="923001234567"></label>
-<p class="note">These settings are only saved in this browser for the demo.</p>
+<label>Discount code<input class="inp" id="aCode"></label>
+<label>Discount %<input class="inp" id="aOff" type="number" min="0" max="90" inputmode="numeric"></label>
+<label>Gift box charge (Rs)<input class="inp" id="aGift" type="number" min="0" step="10" inputmode="numeric"></label>
+<p class="note">Demo: settings and orders are saved only in this browser.</p>
+</div>
+<h3 style="font-size:22px;margin-top:24px">Orders</h3>
+<div class="olist" id="olist"></div>
 </div>
 </div></section>
 
 <footer class="band"><div class="wrap">
-<div><div class="logo" style="font-size:20px">Chandni Silver</div><div>Handmade 925 silver jewellery · Cash on delivery all over Pakistan</div></div>
-<div>Pay by COD, JazzCash or Easypaisa<br>Orders on WhatsApp</div>
-<div><div style="margin-bottom:8px">Follow us</div><div class="social"><a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" data-s="Facebook"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6.5v3.5H9V21h3.5v-7.5H15l.5-3.5h-3V7a1 1 0 0 1 1-1H15z"/></svg><span>Facebook</span></a><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" data-s="Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg><span>Instagram</span></a><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" data-s="TikTok"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.6 2.4 4.5 5 4.8"/></svg><span>TikTok</span></a><a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube" data-s="YouTube"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor"/></svg><span>YouTube</span></a><a href="#wa" target="_blank" rel="noopener" aria-label="WhatsApp" data-s="WhatsApp"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8.4 19z"/><path d="M9 9.5c.3 2.3 2.2 4.2 4.5 4.6l1.2-1.2 1.8.8"/></svg><span>WhatsApp</span></a></div></div>
-<div class="demo">Demo store: sample names, prices, rate and social links.</div>
+<div><div class="logo" style="font-size:20px">Chandni Silver</div><div>Handmade 925 silver jewellery<br>Cash on delivery all over Pakistan</div></div>
+<div><div style="margin-bottom:6px">Help</div><a href="#size">Size guide</a><br><a href="#track">Track order</a><br><a href="#about">About us</a><br><a href="#contact">Contact</a></div>
+<div><div style="margin-bottom:8px">Follow us</div><div class="social" id="social"></div></div>
+<div class="demo" style="flex-basis:100%">Demo store: sample names, prices, rate, address and social links.</div>
 </div></footer>
 
 <div class="scrim" id="scrim"></div>
@@ -191,117 +266,151 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 40px;justify-content:space-bet
 <div class="dbody" id="dbody"></div>
 <div class="sum" id="dsum"></div>
 </aside>
-
 <div class="modal" id="modal" role="dialog" aria-modal="true"><div class="box" id="mbox"></div></div>
 
 <script>
 {
 const P=[
-{id:'r1',im:'photo-1562616261-7bb659f860ed',n:'Gift Box Solitaire Ring',c:'Rings',g:4.2,mk:900,a:'ring',s:'#c23b5a',sz:['6','7','8','9']},
-{id:'r2',im:'photo-1620968867360-5cda83d2bffd',n:'Handcrafted Band Ring',c:'Rings',g:3.1,mk:600,a:'ring',s:null,sz:['6','7','8','9','10']},
-{id:'r3',im:'photo-1586104237516-5b7075e00d45',n:'Blue Stone Ring',c:'Rings',g:4.8,mk:1000,a:'ring',s:'#6fb8cf',sz:['6','7','8']},
-{id:'e1',im:'photo-1714733831162-0a6e849141be',n:'Oxidised Jhumkay',c:'Earrings',g:9.5,mk:1800,a:'jhumka',s:null},
-{id:'e2',im:'photo-1659727640714-7e9a1d8b31cb',n:'Ethnic Silver Jhumkay',c:'Earrings',g:11.2,mk:2200,a:'jhumka',s:'#c23b5a'},
-{id:'e3',im:'photo-1765464281313-b3844388b316',n:'Silver Hoop Baliyan',c:'Earrings',g:5.4,mk:900,a:'hoop',s:null},
-{id:'n1',im:'photo-1605897166509-862b9122111a',n:'Pendant Chain',c:'Necklaces',g:8.6,mk:1500,a:'pendant',s:'#e8e9f2'},
-{id:'n2',im:'photo-1676485261309-784d67817972',n:'Heart Pendant Necklace',c:'Necklaces',g:14.3,mk:2600,a:'necklace',s:'#3b6fb0'},
-{id:'b1',im:'photo-1559329145-ecbff8d919b2',n:'Silver Chain Bracelet',c:'Bracelets',g:12.0,mk:1700,a:'bracelet',s:null,sz:['S','M','L']},
-{id:'b2',im:'photo-1517857399767-a9dc28f5a734',n:'Silver Bangles (pair)',c:'Bracelets',g:18.5,mk:2400,a:'bracelet',s:'#8a4fb3',sz:['2.4','2.6','2.8']},
-{id:'p1',im:'photo-1635770607507-beb7d7972491',n:'Silver Payal',c:'Payal',g:22.0,mk:2800,a:'payal',s:null},
-{id:'s1',im:'photo-1631248622996-ac90313ddc2b',n:'Necklace & Earring Set',c:'Sets',g:38.0,mk:6500,a:'set',s:'#c23b5a'},
-{id:'r4',im:'photo-1595538934869-503c9448981b',n:'Twist Silver Ring',c:'Rings',g:3.6,mk:700,a:'ring',s:null,sz:['6','7','8','9']},
-{id:'e4',im:'photo-1693212793204-bcea856c75fe',n:'Drop Earrings',c:'Earrings',g:6.2,mk:1100,a:'hoop',s:null}
+{id:'r1',im:'photo-1562616261-7bb659f860ed',n:'Gift Box Solitaire Ring',c:'Rings',g:4.2,mk:900,a:'ring',sz:['6','7','8','9'],nw:1},
+{id:'r2',im:'photo-1620968867360-5cda83d2bffd',n:'Handcrafted Band Ring',c:'Rings',g:3.1,mk:600,a:'ring',sz:['6','7','8','9','10']},
+{id:'r3',im:'photo-1586104237516-5b7075e00d45',n:'Blue Stone Ring',c:'Rings',g:4.8,mk:1000,a:'ring',sz:['6','7','8'],nw:1},
+{id:'r4',im:'photo-1595538934869-503c9448981b',n:'Twist Silver Ring',c:'Rings',g:3.6,mk:700,a:'ring',sz:['6','7','8','9']},
+{id:'e1',im:'photo-1714733831162-0a6e849141be',n:'Oxidised Jhumkay',c:'Earrings',g:9.5,mk:1800,a:'jhumka',nw:1},
+{id:'e2',im:'photo-1659727640714-7e9a1d8b31cb',n:'Ethnic Silver Jhumkay',c:'Earrings',g:11.2,mk:2200,a:'jhumka'},
+{id:'e3',im:'photo-1765464281313-b3844388b316',n:'Silver Hoop Baliyan',c:'Earrings',g:5.4,mk:900,a:'hoop'},
+{id:'e4',im:'photo-1693212793204-bcea856c75fe',n:'Drop Earrings',c:'Earrings',g:6.2,mk:1100,a:'hoop',nw:1},
+{id:'n1',im:'photo-1605897166509-862b9122111a',n:'Pendant Chain',c:'Necklaces',g:8.6,mk:1500,a:'pendant'},
+{id:'n2',im:'photo-1676485261309-784d67817972',n:'Heart Pendant Necklace',c:'Necklaces',g:7.3,mk:1400,a:'pendant',nw:1},
+{id:'b1',im:'photo-1559329145-ecbff8d919b2',n:'Silver Chain Bracelet',c:'Bracelets',g:12.0,mk:1700,a:'bracelet',sz:['S','M','L']},
+{id:'b2',im:'photo-1517857399767-a9dc28f5a734',n:'Silver Bangles (pair)',c:'Bracelets',g:18.5,mk:2400,a:'bracelet',sz:['2.4','2.6','2.8']},
+{id:'p1',im:'photo-1635770607507-beb7d7972491',n:'Silver Payal',c:'Payal',g:22.0,mk:2800,a:'payal'},
+{id:'s1',im:'photo-1631248622996-ac90313ddc2b',n:'Necklace & Earring Set',c:'Sets',g:38.0,mk:6500,a:'set',nw:1}
 ];
+const SOC=[['Facebook','https://www.facebook.com/','<path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6.5v3.5H9V21h3.5v-7.5H15l.5-3.5h-3V7a1 1 0 0 1 1-1H15z"/>'],['Instagram','https://www.instagram.com/','<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/>'],['TikTok','https://www.tiktok.com/','<path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.6 2.4 4.5 5 4.8"/>'],['YouTube','https://www.youtube.com/','<rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor"/>'],['WhatsApp','#','<path d="M4 20l1.3-4A8 8 0 1 1 8.4 19z"/><path d="M9 9.5c.3 2.3 2.2 4.2 4.5 4.6l1.2-1.2 1.8.8"/>']];
+const STEPS=['Pending','Confirmed','Dispatched','Delivered'];
 const TOLA=11.664;
 const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
-let cfg=Object.assign({rate:6500,del:250,wa:'923001234567'},store.get('cs_cfg',{}));
-let cart=store.get('cs_cart',[]);
-let cat='All',q='';
+let cfg=Object.assign({rate:6500,del:250,wa:'923001234567',code:'EID10',off:10,gift:300},store.get('cs_cfg',{}));
+let cart=store.get('cs_cart',[]),wish=store.get('cs_wish',[]),revs=store.get('cs_rev',{}),orders=store.get('cs_orders',[]);
+let cat='All',q='',sort='',applied='';
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 const rs=n=>'Rs '+Math.round(n).toLocaleString('en-PK');
 const perG=()=>cfg.rate/TOLA;
 const price=p=>Math.round((p.g*perG()+p.mk)/10)*10;
 const byId=id=>P.find(p=>p.id===id);
+const waNum=()=>String(cfg.wa).replace(/\D/g,'');
+const U=(id,w,z)=>`https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&h=${w}&q=70${z?'&crop=focalpoint&fp-x=.5&fp-y=.5&fp-z='+z:''}`;
 
-const stone=(x,y,r,c)=>c?`<circle cx="${x}" cy="${y}" r="${r}" fill="${c}"/><circle cx="${x-r*.35}" cy="${y-r*.35}" r="${r*.35}" fill="#fff" fill-opacity=".7"/>`:`<circle cx="${x}" cy="${y}" r="${r*.6}" fill="url(#sv)"/>`;
 const shadow=`<ellipse cx="100" cy="172" rx="62" ry="10" fill="url(#sh)"/>`;
-function jh(x,c){return `<circle cx="${x}" cy="42" r="7" fill="none" stroke="url(#sv)" stroke-width="3"/><path d="M${x} 49v14" stroke="url(#sv)" stroke-width="3"/>${stone(x,70,7,c)}<path d="M${x-26} 118 Q${x-26} 78 ${x} 78 Q${x+26} 78 ${x+26} 118 Z" fill="url(#sv)"/><path d="M${x-18} 108 Q${x-16} 88 ${x} 86" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="2.5"/>${[-22,-11,0,11,22].map(d=>`<path d="M${x+d} 118v10" stroke="url(#sv)" stroke-width="2"/><circle cx="${x+d}" cy="132" r="4" fill="url(#sv)"/>`).join('')}`}
 const ART={
-ring:c=>`${shadow}<ellipse cx="100" cy="118" rx="56" ry="40" fill="none" stroke="#5c6068" stroke-width="15"/><ellipse cx="100" cy="115" rx="56" ry="40" fill="none" stroke="url(#sv)" stroke-width="13"/><path d="M52 100 Q100 70 148 100" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="2.5" stroke-linecap="round"/><path d="M84 78 L100 60 L116 78 L100 86Z" fill="url(#sv)"/>${c?`<path d="M86 62 L100 38 L114 62 L100 76Z" fill="${c}"/><path d="M92 54 L100 42 L101 58Z" fill="#fff" fill-opacity=".7"/>`:`<circle cx="100" cy="66" r="9" fill="url(#sv)"/>`}`,
-jhumka:c=>`${shadow}${jh(68,c)}${jh(132,c)}`,
-hoop:c=>`${shadow}<circle cx="70" cy="105" r="34" fill="none" stroke="url(#sv)" stroke-width="7"/><circle cx="130" cy="105" r="34" fill="none" stroke="url(#sv)" stroke-width="7"/><path d="M44 92 Q52 74 70 71" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="2"/><path d="M104 92 Q112 74 130 71" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="2"/>`,
-pendant:c=>`${shadow}<path d="M40 20 L100 112 L160 20" fill="none" stroke="url(#sv)" stroke-width="3" stroke-dasharray="1 5" stroke-linecap="round"/><circle cx="100" cy="114" r="5" fill="none" stroke="url(#sv)" stroke-width="3"/><path d="M100 120 C80 140 80 160 100 168 C120 160 120 140 100 120Z" fill="url(#sv)"/>${stone(100,150,9,c)}`,
-necklace:c=>`${shadow}<path d="M30 30 Q100 160 170 30" fill="none" stroke="url(#sv)" stroke-width="6" stroke-dasharray="1 8" stroke-linecap="round"/><path d="M42 38 Q100 140 158 38" fill="none" stroke="url(#sv)" stroke-width="4" stroke-dasharray="1 6" stroke-linecap="round"/>${[60,80,120,140].map((x,i)=>`<circle cx="${x}" cy="${[78,98,98,78][i]}" r="5" fill="url(#sv)"/>`).join('')}<path d="M86 104 L100 96 L114 104 L100 150Z" fill="url(#sv)"/>${stone(100,116,8,c)}`,
-bracelet:c=>`${shadow}<ellipse cx="100" cy="110" rx="66" ry="34" fill="none" stroke="url(#sv)" stroke-width="${c?14:6}"/>${c?Array.from({length:7},(_,i)=>{const t=Math.PI*(.15+.7*i/6);return stone(100-66*Math.cos(t),110+34*Math.sin(t),6,c)}).join(''):Array.from({length:16},(_,i)=>{const t=2*Math.PI*i/16;return `<circle cx="${100+66*Math.cos(t)}" cy="${110+34*Math.sin(t)}" r="7" fill="url(#sv)"/><circle cx="${97+66*Math.cos(t)}" cy="${107+34*Math.sin(t)}" r="2.2" fill="#fff"/>`}).join('')}`,
-payal:c=>`${shadow}${[0,1].map(k=>{const y=72+k*44;return `<path d="M24 ${y} Q62 ${y+30} 100 ${y} T176 ${y}" fill="none" stroke="url(#sv)" stroke-width="4" stroke-dasharray="2 5" stroke-linecap="round"/>${[44,72,100,128,156].map(x=>`<circle cx="${x}" cy="${y+18+(x%56?0:-6)}" r="5" fill="url(#sv)"/>`).join('')}`}).join('')}`,
-set:c=>`${shadow}<path d="M34 28 Q100 150 166 28" fill="none" stroke="url(#sv)" stroke-width="6" stroke-dasharray="1 8" stroke-linecap="round"/>${[56,78,100,122,144].map((x,i)=>`<path d="M${x-7} ${[66,92,104,92,66][i]} L${x} ${[60,86,98,86,60][i]} L${x+7} ${[66,92,104,92,66][i]} L${x} ${[84,110,130,110,84][i]}Z" fill="url(#sv)"/>`).join('')}${stone(100,112,8,c)}<g transform="translate(-30 60) scale(.45)">${jh(80,c)}</g><g transform="translate(140 60) scale(.45)">${jh(80,c)}</g>`
+ring:`${shadow}<ellipse cx="100" cy="115" rx="56" ry="40" fill="none" stroke="url(#sv)" stroke-width="13"/><path d="M86 62 L100 38 L114 62 L100 76Z" fill="#c23b5a"/>`,
+jhumka:`${shadow}${[68,132].map(x=>`<circle cx="${x}" cy="60" r="8" fill="url(#sv)"/><path d="M${x-26} 118 Q${x-26} 78 ${x} 78 Q${x+26} 78 ${x+26} 118 Z" fill="url(#sv)"/>`).join('')}`,
+hoop:`${shadow}<circle cx="70" cy="105" r="34" fill="none" stroke="url(#sv)" stroke-width="7"/><circle cx="130" cy="105" r="34" fill="none" stroke="url(#sv)" stroke-width="7"/>`,
+pendant:`${shadow}<path d="M40 20 L100 112 L160 20" fill="none" stroke="url(#sv)" stroke-width="3" stroke-dasharray="1 5" stroke-linecap="round"/><path d="M100 120 C80 140 80 160 100 168 C120 160 120 140 100 120Z" fill="url(#sv)"/>`,
+bracelet:`${shadow}<ellipse cx="100" cy="110" rx="66" ry="34" fill="none" stroke="url(#sv)" stroke-width="10"/>`,
+payal:`${shadow}<path d="M24 90 Q62 120 100 90 T176 90" fill="none" stroke="url(#sv)" stroke-width="4" stroke-dasharray="2 5" stroke-linecap="round"/>`,
+set:`${shadow}<path d="M34 28 Q100 150 166 28" fill="none" stroke="url(#sv)" stroke-width="6" stroke-dasharray="1 8" stroke-linecap="round"/><circle cx="100" cy="112" r="10" fill="#c23b5a"/>`
 };
-const U=(id,w)=>`https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&h=${w}&q=70`;
-const pic=(p,w)=>p.im?`<img src="${U(p.im,w||600)}" alt="${esc(p.n)}" loading="lazy" data-fb="${p.id}">`:art(p);
-const art=p=>`<svg viewBox="0 0 200 200" role="img" aria-label="${esc(p.n)}">${ART[p.a](p.s)}<rect width="200" height="200" fill="url(#gl)" opacity=".25"/></svg>`;
+const art=p=>`<svg viewBox="0 0 200 200" role="img" aria-label="${esc(p.n)}">${ART[p.a]}</svg>`;
+const pic=(p,w,z)=>`<img src="${U(p.im,w||600,z)}" alt="${esc(p.n)}" loading="lazy" data-fb="${p.id}">`;
+const heartSvg='<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>';
+const avg=id=>{const r=revs[id]||[];return r.length?{a:r.reduce((s,x)=>s+x.r,0)/r.length,n:r.length}:null};
+const starStr=a=>'★★★★★'.slice(0,Math.round(a))+'☆☆☆☆☆'.slice(0,5-Math.round(a));
 
-function renderRate(){$('rateTola').textContent=rs(cfg.rate)+' / tola';$('rateGram').textContent=rs(perG())+' per gram'}
-function renderChips(){const cats=['All',...new Set(P.map(p=>p.c))];$('chips').innerHTML=cats.map(c=>`<button data-c="${esc(c)}" aria-pressed="${c===cat}">${esc(c)}</button>`).join('')}
+const card=p=>{const v=avg(p.id);return `<article class="card"><button class="pad" data-open="${p.id}" aria-label="View ${esc(p.n)}">${pic(p)}</button>${p.nw?'<span class="tag">New</span>':''}<button class="heart" data-wish="${p.id}" aria-label="Save to wishlist" aria-pressed="${wish.includes(p.id)}">${heartSvg}</button><div class="info"><h3>${esc(p.n)}</h3><div class="meta">${esc(p.c)} · ${p.g} g · 925 silver</div>${v?`<div class="stars" aria-label="${v.a.toFixed(1)} of 5">${starStr(v.a)} <span class="meta">(${v.n})</span></div>`:''}<div class="row"><div class="price">${rs(price(p))}</div><button class="add" data-open="${p.id}">Add</button></div></div></article>`};
+
+function renderRate(){$('rateTola').textContent=rs(cfg.rate)+' / tola';$('rateGram').textContent=rs(perG())+' per gram';$('offer').textContent=`Free delivery above Rs 10,000 · Use code ${cfg.code||'—'} for ${cfg.off||0}% off`;$('waText').textContent='+'+waNum()}
+function renderChips(){const cats=['All','New','Wishlist',...new Set(P.map(p=>p.c))];$('chips').innerHTML=cats.map(c=>`<button data-c="${esc(c)}" aria-pressed="${c===cat}">${c==='Wishlist'?'♡ ':''}${esc(c)}</button>`).join('')}
 function renderGrid(){
-const list=P.filter(p=>(cat==='All'||p.c===cat)&&(!q||(p.n+' '+p.c).toLowerCase().includes(q)));
-$('grid').innerHTML=list.length?list.map(p=>`<article class="card"><button class="pad" data-open="${p.id}" aria-label="View ${esc(p.n)}">${pic(p)}</button><div class="info"><h3>${esc(p.n)}</h3><div class="meta">${esc(p.c)} · ${p.g} g · 925 silver</div><div class="row"><div class="price">${rs(price(p))}</div><button class="add" data-open="${p.id}">Add</button></div></div></article>`).join(''):`<p class="empty">Nothing found. Try another word or category.</p>`;
+let list=P.filter(p=>(cat==='All'||p.c===cat||(cat==='New'&&p.nw)||(cat==='Wishlist'&&wish.includes(p.id)))&&(!q||(p.n+' '+p.c).toLowerCase().includes(q)));
+if(sort==='lo')list.sort((a,b)=>price(a)-price(b));if(sort==='hi')list.sort((a,b)=>price(b)-price(a));if(sort==='w')list.sort((a,b)=>a.g-b.g);
+$('grid').innerHTML=list.length?list.map(card).join(''):`<p class="empty">${cat==='Wishlist'?'Your wishlist is empty. Tap ♡ on any piece to save it.':'Nothing found. Try another word or category.'}</p>`;
+$('rail').innerHTML=P.filter(p=>p.nw).map(card).join('');
+$('wcount').textContent=wish.length;
 }
 function openProduct(id){
-const p=byId(id);
-$('mbox').innerHTML=`<div class="pad">${pic(p,900)}</div><div class="txt"><div class="meta">${esc(p.c)}</div><h2>${esc(p.n)}</h2><div class="price" style="font-size:24px">${rs(price(p))}</div>
+const p=byId(id),v=avg(p.id),rv=revs[p.id]||[];
+const shots=[[0,''],[1,'2'],[2,'3']];
+$('mbox').innerHTML=`<div class="gal"><div class="pad zoom" id="zm">${pic(p,900)}</div><div class="thumbs">${shots.map(([i,z])=>`<button data-z="${z}" aria-label="View ${i+1}" aria-pressed="${i===0}">${pic(p,160,z)}</button>`).join('')}</div><p class="meta" style="margin:0">Tap the photo to zoom.</p></div>
+<div class="txt"><div class="meta">${esc(p.c)}${p.nw?' · New':''}</div><h2>${esc(p.n)}</h2>${v?`<div class="stars">${starStr(v.a)} <span class="meta">${v.a.toFixed(1)} · ${v.n} review${v.n>1?'s':''}</span></div>`:''}<div class="price" style="font-size:24px">${rs(price(p))}</div>
 <div class="brk"><div><span>${p.g} g × ${rs(perG())}/g</span><span>${rs(p.g*perG())}</span></div><div><span>Making charge</span><span>${rs(p.mk)}</span></div></div>
-${p.sz?`<label>Size<select class="inp" id="msz">${p.sz.map(s=>`<option>${esc(s)}</option>`).join('')}</select></label>`:''}
-<button class="btn" id="madd">Add to cart</button><button class="btn ghost" id="mclose">Close</button></div>`;
+${p.sz?`<label>Size<select class="inp" id="msz">${p.sz.map(s=>`<option>${esc(s)}</option>`).join('')}</select></label><button class="lnk" id="msize">Not sure of your size? See the size guide</button>`:''}
+<button class="btn" id="madd">Add to cart</button><button class="btn ghost" id="mwish">${wish.includes(p.id)?'♥ In wishlist':'♡ Save to wishlist'}</button>
+<p class="meta" style="margin:0">925 stamped · 7-day exchange · COD available</p>
+<div class="rev"><h3 style="font-size:20px">Reviews</h3>${rv.length?rv.map(r=>`<div class="r"><span class="stars">${starStr(r.r)}</span> <b>${esc(r.n)}</b><div>${esc(r.t)}</div></div>`).join(''):'<p class="meta" style="margin:0">No reviews yet. Bought this piece? Be the first to review it.</p>'}
+<form class="form" id="rform"><input class="inp" name="n" placeholder="Your name" required maxlength="40"><select class="inp" name="r" aria-label="Rating"><option value="5">★★★★★ Excellent</option><option value="4">★★★★ Good</option><option value="3">★★★ Okay</option><option value="2">★★ Poor</option><option value="1">★ Bad</option></select><textarea class="inp" name="t" placeholder="What did you like?" required maxlength="400"></textarea><button class="btn ghost">Post review</button></form></div>
+<button class="btn ghost" id="mclose">Close</button></div>`;
 $('modal').classList.add('on');$('scrim').classList.add('on');
+const zm=$('zm');
+zm.onclick=()=>zm.classList.toggle('z');
+zm.onpointermove=e=>{const r=zm.getBoundingClientRect(),im=zm.querySelector('img');if(im)im.style.transformOrigin=`${(e.clientX-r.left)/r.width*100}% ${(e.clientY-r.top)/r.height*100}%`};
+$('mbox').querySelector('.thumbs').onclick=e=>{const b=e.target.closest('button');if(!b)return;zm.classList.remove('z');zm.innerHTML=pic(p,900,b.dataset.z);$('mbox').querySelectorAll('.thumbs button').forEach(x=>x.setAttribute('aria-pressed',x===b))};
 $('madd').onclick=()=>{addToCart(p.id,p.sz?$('msz').value:'');closeAll();openCart()};
-$('mclose').onclick=closeAll;$('madd').focus();
+$('mwish').onclick=()=>{toggleWish(p.id);openProduct(p.id)};
+if($('msize'))$('msize').onclick=()=>{closeAll();location.hash='size'};
+$('rform').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target);(revs[p.id]=revs[p.id]||[]).unshift({n:f.get('n').trim(),r:+f.get('r'),t:f.get('t').trim()});store.set('cs_rev',revs);renderGrid();openProduct(p.id)};
+$('mclose').onclick=closeAll;
 }
+function toggleWish(id){wish=wish.includes(id)?wish.filter(x=>x!==id):[...wish,id];store.set('cs_wish',wish);renderGrid()}
 function addToCart(id,size){const l=cart.find(x=>x.id===id&&x.size===size);l?l.qty++:cart.push({id,size,qty:1});save()}
 function save(){store.set('cs_cart',cart);$('ccount').textContent=cart.reduce((a,l)=>a+l.qty,0)}
-function totals(){const sub=cart.reduce((a,l)=>a+price(byId(l.id))*l.qty,0);const del=sub===0||sub>=10000?0:Number(cfg.del)||0;return{sub,del,tot:sub+del}}
+function totals(gift){const sub=cart.reduce((a,l)=>a+price(byId(l.id))*l.qty,0);const disc=applied&&applied===String(cfg.code).toUpperCase()?Math.round(sub*(+cfg.off||0)/100):0;const del=sub===0||sub>=10000?0:+cfg.del||0;const g=gift?+cfg.gift||0:0;return{sub,disc,del,g,tot:sub-disc+del+g}}
+function sumHtml(t){return `<div><span>Subtotal</span><span>${rs(t.sub)}</span></div>${t.disc?`<div><span>Discount (${esc(applied)})</span><span>− ${rs(t.disc)}</span></div>`:''}<div><span>Delivery</span><span>${t.del?rs(t.del):'Free'}</span></div>${t.g?`<div><span>Gift box</span><span>${rs(t.g)}</span></div>`:''}<div class="tot"><span>Total</span><span>${rs(t.tot)}</span></div>`}
 function renderCart(){
 $('dTitle').textContent='Your cart';
 if(!cart.length){$('dbody').innerHTML='<p class="empty">Your cart is empty.</p>';$('dsum').innerHTML='';return}
 $('dbody').innerHTML=cart.map((l,i)=>{const p=byId(l.id);return `<div class="line"><div class="th">${pic(p,160)}</div><div><div style="font-weight:600">${esc(p.n)}</div><div class="meta">${l.size?'Size '+esc(l.size)+' · ':''}${rs(price(p))}</div></div><div class="qty"><button data-q="${i}" data-d="-1" aria-label="Less">−</button><span>${l.qty}</span><button data-q="${i}" data-d="1" aria-label="More">+</button></div></div>`}).join('');
-const t=totals();
-$('dsum').innerHTML=`<div><span>Subtotal</span><span>${rs(t.sub)}</span></div><div><span>Delivery</span><span>${t.del?rs(t.del):'Free'}</span></div><div class="tot"><span>Total</span><span>${rs(t.tot)}</span></div><button class="btn" id="checkout">Checkout</button>`;
+$('dsum').innerHTML=sumHtml(totals())+'<button class="btn" id="checkout">Checkout</button>';
 $('checkout').onclick=renderCheckout;
 }
 function renderCheckout(){
 $('dTitle').textContent='Checkout';
 $('dbody').innerHTML=`<form class="form" id="cform"><label>Full name<input class="inp" name="name" required autocomplete="name"></label><label>Phone<input class="inp" name="phone" type="tel" required placeholder="03xx xxxxxxx" autocomplete="tel"></label><label>City<input class="inp" name="city" required></label><label>Address<input class="inp" name="addr" required autocomplete="street-address"></label>
 <div><div style="font-size:14px;margin-bottom:6px">Payment</div><div class="pay">${['Cash on delivery','JazzCash','Easypaisa'].map((m,i)=>`<label><input type="radio" name="pay" value="${m}" ${i?'':'checked'}>${m}</label>`).join('')}</div></div>
+<label class="chk"><input type="checkbox" name="gift" id="giftC"> Add a velvet gift box (${rs(cfg.gift)})</label>
+<div><div style="font-size:14px;margin-bottom:6px">Discount code</div><div class="code"><input class="inp" id="codeI" value="${esc(applied)}" placeholder="e.g. EID10" autocapitalize="characters"><button type="button" class="btn ghost" id="codeB">Apply</button></div><div id="codeM"></div></div>
 <button class="btn">Place order on WhatsApp</button><button type="button" class="btn ghost" id="back">Back to cart</button></form>`;
-$('dsum').innerHTML='';
+const upd=()=>{$('dsum').innerHTML=sumHtml(totals($('giftC').checked))};upd();
+$('giftC').onchange=upd;
+$('codeB').onclick=()=>{const c=$('codeI').value.trim().toUpperCase();if(c&&c===String(cfg.code).toUpperCase()){applied=c;$('codeM').innerHTML=`<span class="ok">Code applied: ${+cfg.off}% off</span>`}else{applied='';$('codeM').innerHTML='<span class="bad">This code is not valid</span>'}upd()};
 $('back').onclick=renderCart;
-$('cform').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target);const t=totals();
-const msg=`New order – Chandni Silver\n\n${cart.map(l=>{const p=byId(l.id);return `• ${p.n}${l.size?' (size '+l.size+')':''} × ${l.qty} = ${rs(price(p)*l.qty)}`}).join('\n')}\n\nSubtotal: ${rs(t.sub)}\nDelivery: ${t.del?rs(t.del):'Free'}\nTotal: ${rs(t.tot)}\n\nName: ${f.get('name')}\nPhone: ${f.get('phone')}\nCity: ${f.get('city')}\nAddress: ${f.get('addr')}\nPayment: ${f.get('pay')}\nSilver rate: ${rs(cfg.rate)}/tola`;
-const num=String(cfg.wa).replace(/\D/g,'');
-$('dTitle').textContent='Send your order';
-$('dbody').innerHTML=`<p>Your order message is ready. Tap the button to open WhatsApp and send it to the shop (${esc(num)}).</p><div class="msg" id="omsg"></div><div style="display:grid;gap:10px;margin-top:14px"><a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/${num}?text=${encodeURIComponent(msg)}">Open WhatsApp</a><button class="btn ghost" id="copy">Copy message</button><button class="btn ghost" id="done">Clear cart</button></div>`;
+$('cform').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target);const gift=!!f.get('gift');const t=totals(gift);
+const oid='CS-'+String(Date.now()).slice(-4);
+const items=cart.map(l=>{const p=byId(l.id);return `• ${p.n}${l.size?' (size '+l.size+')':''} × ${l.qty} = ${rs(price(p)*l.qty)}`}).join('\n');
+const msg=`New order ${oid} – Chandni Silver\n\n${items}\n\nSubtotal: ${rs(t.sub)}${t.disc?`\nDiscount (${applied}): -${rs(t.disc)}`:''}\nDelivery: ${t.del?rs(t.del):'Free'}${gift?`\nGift box: ${rs(t.g)}`:''}\nTotal: ${rs(t.tot)}\n\nName: ${f.get('name')}\nPhone: ${f.get('phone')}\nCity: ${f.get('city')}\nAddress: ${f.get('addr')}\nPayment: ${f.get('pay')}\nSilver rate: ${rs(cfg.rate)}/tola`;
+orders.unshift({id:oid,name:String(f.get('name')),phone:String(f.get('phone')).replace(/\D/g,''),total:t.tot,st:0,d:new Date().toLocaleDateString('en-PK')});store.set('cs_orders',orders);renderOrders();
+$('dTitle').textContent='Send your order';$('dsum').innerHTML='';
+$('dbody').innerHTML=`<p>Your order number is <b>${oid}</b>. Keep it to track your order. Tap the button to send the order to the shop on WhatsApp (+${esc(waNum())}).</p><div class="msg" id="omsg"></div><div style="display:grid;gap:10px;margin-top:14px"><a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/${waNum()}?text=${encodeURIComponent(msg)}">Open WhatsApp</a><button class="btn ghost" id="copy">Copy message</button><button class="btn ghost" id="done">Done, clear cart</button></div>`;
 $('omsg').textContent=msg;
 $('copy').onclick=async()=>{try{await navigator.clipboard.writeText(msg);$('copy').textContent='Copied'}catch(err){$('copy').textContent='Copy not allowed here'}};
-$('done').onclick=()=>{cart=[];save();renderCart()};
+$('done').onclick=()=>{cart=[];applied='';save();renderCart()};
 };
 }
+function statusHtml(o){return `<div class="panel" style="padding:14px;margin-top:8px"><b>${esc(o.id)}</b> · ${esc(o.d)} · ${rs(o.total)}<div class="status">${STEPS.map((s,i)=>`<span class="${i<=o.st?'on':''}">${s}</span>`).join('')}</div></div>`}
+function renderOrders(){$('olist').innerHTML=orders.length?orders.map((o,i)=>`<div class="oitem"><div><b>${esc(o.id)}</b> · ${esc(o.name)} · ${rs(o.total)}</div><select class="inp" style="width:auto" data-o="${i}" aria-label="Status of ${esc(o.id)}">${STEPS.map((s,j)=>`<option value="${j}" ${j===o.st?'selected':''}>${s}</option>`).join('')}</select></div>`).join(''):'<p class="note" style="margin:0">No orders yet. Orders placed on this site appear here.</p>'}
 function openCart(){renderCart();$('drawer').classList.add('on');$('scrim').classList.add('on')}
 function closeAll(){$('drawer').classList.remove('on');$('modal').classList.remove('on');$('scrim').classList.remove('on')}
 function renderAll(){renderRate();renderGrid();if($('drawer').classList.contains('on')&&$('dTitle').textContent==='Your cart')renderCart()}
 
+$('social').innerHTML=SOC.map(([n,u,d])=>`<a href="${n==='WhatsApp'?'https://wa.me/'+waNum():u}" target="_blank" rel="noopener" data-s="${n}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg><span>${n}</span></a>`).join('');
 $('chips').onclick=e=>{const b=e.target.closest('button');if(!b)return;cat=b.dataset.c;renderChips();renderGrid()};
 $('q').oninput=e=>{q=e.target.value.trim().toLowerCase();renderGrid()};
-$('grid').onclick=e=>{const b=e.target.closest('[data-open]');if(b)openProduct(b.dataset.open)};
+$('sort').onchange=e=>{sort=e.target.value;renderGrid()};
+const gridClick=e=>{const w=e.target.closest('[data-wish]');if(w){toggleWish(w.dataset.wish);return}const b=e.target.closest('[data-open]');if(b)openProduct(b.dataset.open)};
+$('grid').onclick=gridClick;$('rail').onclick=gridClick;
+$('rPrev').onclick=()=>$('rail').scrollBy({left:-260,behavior:'smooth'});$('rNext').onclick=()=>$('rail').scrollBy({left:260,behavior:'smooth'});
 $('dbody').onclick=e=>{const b=e.target.closest('[data-q]');if(!b)return;const l=cart[+b.dataset.q];l.qty+=+b.dataset.d;if(l.qty<1)cart.splice(+b.dataset.q,1);save();renderCart()};
 $('openCart').onclick=openCart;$('closeCart').onclick=closeAll;$('scrim').onclick=closeAll;
+$('openWish').onclick=()=>{cat='Wishlist';renderChips();renderGrid();location.hash='shop'};
 $('modal').onclick=e=>{if(e.target.id==='modal')closeAll()};
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()});
-const aR=$('aRate'),aD=$('aDel'),aW=$('aWa');aR.value=cfg.rate;aD.value=cfg.del;aW.value=cfg.wa;
-const upd=()=>{cfg={rate:Math.max(0,+aR.value||0),del:Math.max(0,+aD.value||0),wa:aW.value};store.set('cs_cfg',cfg);renderAll()};
-aR.oninput=upd;aD.oninput=upd;aW.oninput=upd;
-document.addEventListener('error',e=>{const t=e.target;if(t.tagName==='IMG'&&t.dataset.fb){const p=byId(t.dataset.fb);t.outerHTML=art(p)}else if(t.id==='heroImg')t.remove()},true);
-const setWa=()=>{const a=document.querySelector('[data-s=WhatsApp]');if(a)a.href='https://wa.me/'+String(cfg.wa).replace(/\D/g,'')};setWa();aW.addEventListener('input',setWa);
-renderChips();renderAll();save();
+$('tform').onsubmit=e=>{e.preventDefault();const v=$('tq').value.trim().toUpperCase(),d=v.replace(/\D/g,'');const f=orders.filter(o=>o.id===v||(d.length>=7&&o.phone.endsWith(d.slice(-10))));$('tres').innerHTML=f.length?f.map(statusHtml).join(''):'<p class="meta" style="margin:0">No order found. Check the number, or ask us on WhatsApp.</p>'};
+$('olist').onchange=e=>{const s=e.target.closest('[data-o]');if(!s)return;orders[+s.dataset.o].st=+s.value;store.set('cs_orders',orders)};
+const A={aRate:'rate',aDel:'del',aWa:'wa',aCode:'code',aOff:'off',aGift:'gift'};
+for(const [i,k] of Object.entries(A)){$(i).value=cfg[k];$(i).oninput=()=>{const v=$(i).value;cfg[k]=(k==='wa'||k==='code')?v.trim().toUpperCase():Math.max(0,+v||0);store.set('cs_cfg',cfg);renderAll();const a=document.querySelector('[data-s=WhatsApp]');if(a)a.href='https://wa.me/'+waNum()}}
+document.addEventListener('error',e=>{const t=e.target;if(t.tagName==='IMG'&&t.dataset.fb){t.outerHTML=art(byId(t.dataset.fb))}else if(t.id==='heroImg')t.remove()},true);
+renderChips();renderAll();renderOrders();save();
 }
 </script>
 </body>
