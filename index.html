@@ -28,7 +28,7 @@
 *{box-sizing:border-box;min-width:0}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Jost,system-ui,sans-serif;overflow-x:clip}
 h1,h2,h3{font-family:Marcellus,Georgia,serif;font-weight:400;line-height:1.08;text-wrap:balance;margin:0}
-html{scroll-padding-top:80px;scroll-behavior:smooth}
+html{scroll-padding-top:150px;scroll-behavior:smooth}
 .band{padding:clamp(28px,4vw,64px) max(5vw,16px)}
 .wrap{max-width:1240px;margin:0 auto}
 .sec-t{font-size:clamp(28px,3.4vw,40px);margin-bottom:8px}
@@ -38,6 +38,13 @@ button{cursor:pointer}
 :focus-visible{outline:3px solid var(--pearl);outline-offset:2px}
 .btn{min-height:44px;padding:10px 20px;border-radius:999px;border:0;background:var(--btn);color:var(--btnink);font-weight:600;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
 .btn.ghost{background:transparent;color:inherit;border:1.5px solid currentColor}
+.hbar{display:flex;gap:10px;align-items:center;max-width:1240px;margin:0 auto;padding:0 max(5vw,16px) 10px}
+header .search{flex:0 0 240px;background:#ffffff14;border-color:#ffffff33;color:#fff}
+header .search::placeholder{color:#d8c3cb}
+header .chips{margin:0;padding:0;flex:1}
+header .chips button{background:transparent;color:#f2e6ea;border-color:#ffffff33;min-height:40px;padding:6px 16px}
+header .chips button[aria-pressed=true]{background:#f2e6ea;color:#2b0b16}
+@media(max-width:600px){.hbar{flex-wrap:wrap;gap:8px;padding-bottom:8px}header .search{flex:1 1 100%;min-height:40px;padding:6px 16px}header .wrap{flex-wrap:nowrap;gap:8px;padding-block:8px}.logo{font-size:20px}.cartbtn{padding:6px 10px;min-height:40px}html{scroll-padding-top:170px}}
 .offer{background:var(--pearl);color:var(--vel2);text-align:center;font-size:14px;font-weight:500;padding:8px 16px}
 header{position:sticky;top:0;z-index:20;background:var(--vel2);color:#f4e9ed}
 header .wrap{display:flex;align-items:center;gap:16px;padding:10px max(5vw,16px);flex-wrap:wrap}
@@ -192,7 +199,9 @@ details p,details ul{margin:8px 0 0;color:var(--muted)}
 <a class="logo" href="#top"><svg width="26" height="26" viewBox="0 0 40 40"><path d="M28 6a15 15 0 1 0 6 22A12 12 0 1 1 28 6z" fill="url(#sv)"/></svg>Chandni Silver</a>
 <nav><a href="#new">New</a><a href="#shop">Shop</a><a href="#size">Size guide</a><a href="#track">Track order</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
 <div class="hbtns"><button class="cartbtn" id="openWish" aria-label="Wishlist">♡ <b id="wcount">0</b></button><button class="cartbtn" id="openCart" aria-label="Open cart">Cart <b id="ccount">0</b></button></div>
-</div></header>
+</div>
+<div class="hbar"><input class="search" id="q" type="search" placeholder="Search rings, jhumkay…" aria-label="Search products"><div class="chips" id="chips"></div></div>
+</header>
 
 <section class="hero band" id="top"><div class="wrap">
 <div>
@@ -228,9 +237,7 @@ details p,details ul{margin:8px 0 0;color:var(--muted)}
 
 <section class="band" id="shop" style="padding-top:0"><div class="wrap">
 <div class="shophead"><h2 class="sec-t">The collection</h2>
-<div class="tools"><input class="search" id="q" type="search" placeholder="Search rings, jhumkay…" aria-label="Search products">
-<select class="sort" id="sort" aria-label="Sort"><option value="">Sort: featured</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option><option value="w">Weight: light first</option></select></div></div>
-<div class="chips" id="chips"></div>
+<div class="tools"><select class="sort" id="sort" aria-label="Sort"><option value="">Sort: featured</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option><option value="w">Weight: light first</option></select></div></div>
 <div class="grid" id="grid"></div>
 <p class="meta" style="margin-top:18px">Demo: sample products, free photos from Unsplash. The shop's own photos will replace them.</p>
 </div></section>
@@ -445,8 +452,9 @@ function closeAll(){$('drawer').classList.remove('on');$('modal').classList.remo
 function renderAll(){renderRate();renderGrid();if($('drawer').classList.contains('on')&&$('dTitle').textContent==='Your cart')renderCart()}
 
 $('social').innerHTML=SOC.map(([n,u,d])=>`<a href="${n==='WhatsApp'?'https://wa.me/'+waNum():u}" target="_blank" rel="noopener" data-s="${n}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg><span>${n}</span></a>`).join('');
-$('chips').onclick=e=>{const b=e.target.closest('button');if(!b)return;cat=b.dataset.c;renderChips();renderGrid()};
-$('q').oninput=e=>{q=e.target.value.trim().toLowerCase();renderGrid()};
+const toShop=()=>{const r=$('shop').getBoundingClientRect();if(r.top>innerHeight*.6||r.bottom<200)$('shop').scrollIntoView()};
+$('chips').onclick=e=>{const b=e.target.closest('button');if(!b)return;cat=b.dataset.c;renderChips();renderGrid();toShop()};
+$('q').oninput=e=>{q=e.target.value.trim().toLowerCase();renderGrid();toShop()};
 $('sort').onchange=e=>{sort=e.target.value;renderGrid()};
 const gridClick=e=>{const w=e.target.closest('[data-wish]');if(w){toggleWish(w.dataset.wish);return}const b=e.target.closest('[data-open]');if(b)openProduct(b.dataset.open)};
 $('grid').onclick=gridClick;$('rail').onclick=gridClick;
