@@ -3,7 +3,7 @@
 Everything below is made up for the client demo. Replace each item with the client's real details.
 
 ## Brand and contact
-- Store name **Chandni Silver** and the moon logo
+- Store name **Chandni Silver** and the moon logo (logo.svg, icon-512.png)
 - Brand story: "started in 1985", "two-man karigar workshop", "second generation", "15,000 families"
 - Address: Shop 12, Silver Market, Saddar, Karachi, and the Google map pin
 - Opening hours: Mon–Sat, 11 am – 9 pm
@@ -44,3 +44,9 @@ Everything below is made up for the client demo. Replace each item with the clie
 ## Demo-only behaviour
 - Orders, reviews, stock and settings save only in the visitor's own browser
 - The admin PIN lock is not real security; the real store needs a proper login (Supabase)
+
+## To switch on later
+- Facebook Pixel and Google Analytics: paste the client's IDs in `window.CS_TRACK={pixel:'',ga:''}` at the top of index.html
+- Google Search Console: add the site, verify, then submit sitemap.xml
+- Urdu translation covers the main page text; product names, descriptions, FAQ answers and articles stay in English. A native reader should check the Urdu.
+- Links in sitemap.xml, robots.txt, canonical and link preview point to the GitHub Pages address; change them when the site moves to the client's domain

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://qureshi-jewellers-software.github.io/silver-store/sitemap.xml
