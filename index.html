@@ -78,6 +78,7 @@ label{display:flex;flex-direction:column;gap:6px;font-size:14px}
 .fields .note{grid-column:1/-1;font-size:14px;color:#d8c3cb;margin:0}
 footer{background:#1a070e;color:#cdb8c0;font-size:15px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px 40px;justify-content:space-between}
+.social{display:flex;flex-wrap:wrap;gap:8px}.social a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 14px;border:1px solid #ffffff2e;border-radius:999px;color:#f2e6ea;text-decoration:none;font-size:14px}.social a:hover{background:#ffffff14}
 .demo{font-size:13px;color:#a8939b}
 .scrim{position:fixed;inset:0;background:#0009;z-index:40;display:none}
 .scrim.on{display:block}
@@ -180,7 +181,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 40px;justify-content:space-bet
 <footer class="band"><div class="wrap">
 <div><div class="logo" style="font-size:20px">Chandni Silver</div><div>Handmade 925 silver jewellery · Cash on delivery all over Pakistan</div></div>
 <div>Pay by COD, JazzCash or Easypaisa<br>Orders on WhatsApp</div>
-<div class="demo">Demo store: sample names, prices and rate.</div>
+<div><div style="margin-bottom:8px">Follow us</div><div class="social"><a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" data-s="Facebook"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6.5v3.5H9V21h3.5v-7.5H15l.5-3.5h-3V7a1 1 0 0 1 1-1H15z"/></svg><span>Facebook</span></a><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" data-s="Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg><span>Instagram</span></a><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" data-s="TikTok"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.6 2.4 4.5 5 4.8"/></svg><span>TikTok</span></a><a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube" data-s="YouTube"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor"/></svg><span>YouTube</span></a><a href="#wa" target="_blank" rel="noopener" aria-label="WhatsApp" data-s="WhatsApp"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8.4 19z"/><path d="M9 9.5c.3 2.3 2.2 4.2 4.5 4.6l1.2-1.2 1.8.8"/></svg><span>WhatsApp</span></a></div></div>
+<div class="demo">Demo store: sample names, prices, rate and social links.</div>
 </div></footer>
 
 <div class="scrim" id="scrim"></div>
@@ -298,6 +300,7 @@ const aR=$('aRate'),aD=$('aDel'),aW=$('aWa');aR.value=cfg.rate;aD.value=cfg.del;
 const upd=()=>{cfg={rate:Math.max(0,+aR.value||0),del:Math.max(0,+aD.value||0),wa:aW.value};store.set('cs_cfg',cfg);renderAll()};
 aR.oninput=upd;aD.oninput=upd;aW.oninput=upd;
 document.addEventListener('error',e=>{const t=e.target;if(t.tagName==='IMG'&&t.dataset.fb){const p=byId(t.dataset.fb);t.outerHTML=art(p)}else if(t.id==='heroImg')t.remove()},true);
+const setWa=()=>{const a=document.querySelector('[data-s=WhatsApp]');if(a)a.href='https://wa.me/'+String(cfg.wa).replace(/\D/g,'')};setWa();aW.addEventListener('input',setWa);
 renderChips();renderAll();save();
 }
 </script>
