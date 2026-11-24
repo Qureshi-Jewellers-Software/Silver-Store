@@ -132,6 +132,13 @@ footer a{color:#f2e6ea}
 .occ button{position:relative;aspect-ratio:1.2;border:0;border-radius:18px;overflow:hidden;padding:0;background:var(--vel2);color:#fff;text-align:left}
 .occ img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.75}
 .occ span{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;background:linear-gradient(transparent,#000c);font-family:Marcellus,serif;font-size:20px}
+.was{color:var(--muted);font-weight:400;font-size:14px;margin-right:6px}
+.tag.sale{background:#c23b5a;color:#fff}
+.jgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:18px}
+.jcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;text-align:left;color:var(--ink);display:flex;flex-direction:column;gap:8px}
+.jcard h3{font-size:21px}
+.faq{display:grid;gap:10px;max-width:860px}
+.eta{font-size:14px;color:var(--muted)}
 .stock{font-size:13px;font-weight:600;color:#c23b5a}
 .sold .pad{filter:grayscale(1) opacity(.6)}
 .add:disabled,.btn:disabled{opacity:.45;cursor:not-allowed}
@@ -198,7 +205,7 @@ details p,details ul{margin:8px 0 0;color:var(--muted)}
 <div class="offer" id="offer">Free delivery above Rs 10,000 · Use code EID10 for 10% off</div>
 <header><div class="wrap">
 <a class="logo" href="#top"><svg width="26" height="26" viewBox="0 0 40 40"><path d="M28 6a15 15 0 1 0 6 22A12 12 0 1 1 28 6z" fill="url(#sv)"/></svg>Chandni Silver</a>
-<nav><a href="#new">New</a><a href="#shop">Shop</a><a href="#size">Size guide</a><a href="#track">Track order</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+<nav><a href="#new">New</a><a href="#shop">Shop</a><a href="#size">Size guide</a><a href="#track">Track order</a><a href="#faq">FAQ</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
 <div class="hbtns"><button class="cartbtn" id="openWish" aria-label="Wishlist">♡ <b id="wcount">0</b></button><button class="cartbtn" id="openCart" aria-label="Open cart">Cart <b id="ccount">0</b></button></div>
 </div>
 <div class="hbar"><input class="search" id="q" type="search" placeholder="Search rings, jhumkay…" aria-label="Search products"><div class="chips" id="chips"></div></div>
@@ -245,6 +252,7 @@ details p,details ul{margin:8px 0 0;color:var(--muted)}
 
 <section class="band promise"><div class="wrap pgrid">
 <div><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v6c0 4-3 7.5-7 9-4-1.5-7-5-7-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><h3>925 silver guarantee</h3><p>Every piece is 92.5% sterling silver and carries the 925 stamp. If it isn't, you get your full money back.</p></div>
+<div><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="13" rx="1.5"/><path d="M7 8h10M7 11.5h6"/><circle cx="16" cy="17.5" r="2.5"/><path d="M14.8 19.8l-.8 2.7 2-1 2 1-.8-2.7"/></svg><h3>Certificate of authenticity</h3><p>Every order comes with a signed card stating the metal, weight and 925 purity. Free replating once a year on any piece.</p></div>
 <div><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12a8 8 0 1 0 2.3-5.6"/><path d="M4 4v4h4"/></svg><h3>7-day exchange</h3><p>Size not right? Exchange within 7 days of delivery, unused and in its box.</p></div>
 <div><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="7" width="12" height="9" rx="1"/><path d="M14.5 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg><h3>Cash on delivery</h3><p>COD all over Pakistan, or pay by JazzCash or Easypaisa.</p></div>
 <div><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="9" width="17" height="11" rx="1"/><path d="M2.5 9h19M12 9v11M12 9c-2-4-6-4-6-1.5S10 9 12 9c2 0 6 1 6-1.5S14 5 12 9"/></svg><h3>Gift wrapping</h3><p>Add a velvet gift box at checkout and we'll pack it ready to give.</p></div>
@@ -266,9 +274,20 @@ details p,details ul{margin:8px 0 0;color:var(--muted)}
 <div class="panel"><form class="track" id="tform"><input class="inp" id="tq" placeholder="CS-1234 or 03xx xxxxxxx" aria-label="Order number or phone" required><button class="btn">Track</button></form><div id="tres" style="margin-top:12px"></div></div>
 </div></section>
 
+<section class="band" id="faq"><div class="wrap">
+<h2 class="sec-t">Questions people ask</h2>
+<div class="faq" id="faqList"></div>
+</div></section>
+
+<section class="band promise" id="journal"><div class="wrap">
+<h2 class="sec-t">Silver journal</h2><p class="sub">Short guides to buying and caring for silver.</p>
+<div class="jgrid" id="jgrid"></div>
+</div></section>
+
 <section class="band" id="about"><div class="wrap two">
 <div><h2 class="sec-t">About Chandni Silver</h2>
-<p>We are a family silver shop making and selling 925 sterling silver jewellery. Every piece is weighed in front of you, priced by the day's rate, and stamped 925.</p>
+<p>Chandni Silver began in 1985 as a two-man karigar workshop in Saddar, Karachi. Today the second generation runs the shop, and the same karigars' sons still make every piece by hand.</p>
+<p>We only work in 925 sterling silver. Every piece is weighed in front of you, priced by the day's rate, and stamped 925. Over 15,000 families have bought from us for weddings, Eid and everyday wear.</p>
 <p>Bridal sets, daily rings or a gift for someone special: come to the shop, or order online and get it at your door.</p></div>
 <div id="contact"><h2 class="sec-t">Contact</h2>
 <p>Shop 12, Silver Market, Saddar, Karachi<br>Open Mon–Sat, 11 am – 9 pm<br>WhatsApp: <span id="waText">—</span></p>
@@ -300,7 +319,7 @@ details p,details ul{margin:8px 0 0;color:var(--muted)}
 
 <footer class="band"><div class="wrap">
 <div><div class="logo" style="font-size:20px">Chandni Silver</div><div>Handmade 925 silver jewellery<br>Cash on delivery all over Pakistan</div></div>
-<div class="flinks"><div style="margin-bottom:4px">Help</div><a href="#size">Size guide</a><a href="#track">Track order</a><a href="#about">About us</a><a href="#contact">Contact</a></div>
+<div class="flinks"><div style="margin-bottom:4px">Help</div><a href="#size">Size guide</a><a href="#track">Track order</a><a href="#faq">FAQ</a><a href="#journal">Silver journal</a><a href="#about">About us</a><a href="#contact">Contact</a></div>
 <div class="flinks"><div style="margin-bottom:4px">Policies</div><button data-pol="ship">Shipping policy</button><button data-pol="ret">Return & exchange</button><button data-pol="priv">Privacy policy</button><button data-pol="terms">Terms of service</button></div>
 <div><div style="margin-bottom:8px">Follow us</div><div class="social" id="social"></div></div>
 <div class="demo" style="flex-basis:100%">Demo store: sample names, prices, rate, address and social links.</div>
@@ -319,19 +338,22 @@ details p,details ul{margin:8px 0 0;color:var(--muted)}
 {
 const P=[
 {id:'r1',d:'A single sparkling stone set high on a slim 925 band. Comes in a gift box.',dm:'Band width 2 mm',o:'gift daily',st:6,im:'photo-1562616261-7bb659f860ed',n:'Gift Box Solitaire Ring',c:'Rings',g:4.2,mk:900,a:'ring',sz:['6','7','8','9'],nw:1},
-{id:'r2',d:'Hand-hammered plain band with a soft matte shine. Easy to wear every day.',dm:'Band width 4 mm',o:'daily',st:8,im:'photo-1620968867360-5cda83d2bffd',n:'Handcrafted Band Ring',c:'Rings',g:3.1,mk:600,a:'ring',sz:['6','7','8','9','10']},
+{id:'r2',sale:15,d:'Hand-hammered plain band with a soft matte shine. Easy to wear every day.',dm:'Band width 4 mm',o:'daily',st:8,im:'photo-1620968867360-5cda83d2bffd',n:'Handcrafted Band Ring',c:'Rings',g:3.1,mk:600,a:'ring',sz:['6','7','8','9','10']},
 {id:'r3',d:'Oval blue stone framed in silver with fine side detail.',dm:'Stone 9 × 7 mm',o:'gift',st:3,im:'photo-1586104237516-5b7075e00d45',n:'Blue Stone Ring',c:'Rings',g:4.8,mk:1000,a:'ring',sz:['6','7','8'],nw:1},
 {id:'r4',d:'Two twisted silver wires joined into one light ring.',dm:'Band width 3 mm',o:'daily',st:5,im:'photo-1595538934869-503c9448981b',n:'Twist Silver Ring',c:'Rings',g:3.6,mk:700,a:'ring',sz:['6','7','8','9']},
-{id:'e1',d:'Traditional oxidised jhumkay with a gold-tone touch and hanging beads.',dm:'Length 5 cm',o:'bridal gift',st:4,im:'photo-1714733831162-0a6e849141be',n:'Oxidised Jhumkay',c:'Earrings',g:9.5,mk:1800,a:'jhumka',nw:1},
+{id:'e1',sale:20,d:'Traditional oxidised jhumkay with a gold-tone touch and hanging beads.',dm:'Length 5 cm',o:'bridal gift',st:4,im:'photo-1714733831162-0a6e849141be',n:'Oxidised Jhumkay',c:'Earrings',g:9.5,mk:1800,a:'jhumka',nw:1},
 {id:'e2',d:'Ethnic silver jhumkay with fine carving, light enough for long wear.',dm:'Length 4.5 cm',o:'bridal',st:2,im:'photo-1659727640714-7e9a1d8b31cb',n:'Ethnic Silver Jhumkay',c:'Earrings',g:11.2,mk:2200,a:'jhumka'},
 {id:'e3',d:'Polished round hoops with a click lock.',dm:'Diameter 2.5 cm',o:'daily',st:10,im:'photo-1765464281313-b3844388b316',n:'Silver Hoop Baliyan',c:'Earrings',g:5.4,mk:900,a:'hoop'},
 {id:'e4',d:'Small drop earrings that catch the light as you move.',dm:'Length 3 cm',o:'daily gift',st:0,im:'photo-1693212793204-bcea856c75fe',n:'Drop Earrings',c:'Earrings',g:6.2,mk:1100,a:'hoop',nw:1},
-{id:'n1',d:'Slim silver chain with a polished pendant.',dm:'Chain 18 in (45 cm)',o:'daily gift',st:7,im:'photo-1605897166509-862b9122111a',n:'Pendant Chain',c:'Necklaces',g:8.6,mk:1500,a:'pendant'},
+{id:'n1',sale:10,d:'Slim silver chain with a polished pendant.',dm:'Chain 18 in (45 cm)',o:'daily gift',st:7,im:'photo-1605897166509-862b9122111a',n:'Pendant Chain',c:'Necklaces',g:8.6,mk:1500,a:'pendant'},
 {id:'n2',d:'Heart pendant on a fine 925 chain, a classic gift.',dm:'Chain 16 in (40 cm), pendant 1.5 cm',o:'gift',st:5,im:'photo-1676485261309-784d67817972',n:'Heart Pendant Necklace',c:'Necklaces',g:7.3,mk:1400,a:'pendant',nw:1},
 {id:'b1',d:'Link chain bracelet with a lobster clasp.',dm:'See size guide',o:'daily gift',st:6,im:'photo-1559329145-ecbff8d919b2',n:'Silver Chain Bracelet',c:'Bracelets',g:12.0,mk:1700,a:'bracelet',sz:['S','M','L']},
-{id:'b2',d:'A pair of smooth silver bangles that sound soft together.',dm:'See size guide',o:'bridal daily',st:3,im:'photo-1517857399767-a9dc28f5a734',n:'Silver Bangles (pair)',c:'Bracelets',g:18.5,mk:2400,a:'bracelet',sz:['2.4','2.6','2.8']},
+{id:'b2',sale:10,d:'A pair of smooth silver bangles that sound soft together.',dm:'See size guide',o:'bridal daily',st:3,im:'photo-1517857399767-a9dc28f5a734',n:'Silver Bangles (pair)',c:'Bracelets',g:18.5,mk:2400,a:'bracelet',sz:['2.4','2.6','2.8']},
 {id:'p1',d:'Delicate silver payal with small ghungroo bells.',dm:'Length 10 in (25 cm), adjustable',o:'bridal',st:4,im:'photo-1635770607507-beb7d7972491',n:'Silver Payal',c:'Payal',g:22.0,mk:2800,a:'payal'},
-{id:'s1',d:'Matching necklace and earring set for weddings and events.',dm:'Necklace 16 in, earrings 4 cm',o:'bridal',st:1,im:'photo-1631248622996-ac90313ddc2b',n:'Necklace & Earring Set',c:'Sets',g:38.0,mk:6500,a:'set',nw:1},
+{id:'s1',sale:15,d:'Matching necklace and earring set for weddings and events.',dm:'Necklace 16 in, earrings 4 cm',o:'bridal',st:1,im:'photo-1631248622996-ac90313ddc2b',n:'Necklace & Earring Set',c:'Sets',g:38.0,mk:6500,a:'set',nw:1},
+{id:'q1',d:'Natural Yemeni aqeeq set in a heavy silver ring for men.',dm:'Stone 14 × 10 mm',o:'men gift',st:4,s:'#8b2a1e',n:'Yemeni Aqeeq Ring',c:'Aqeeq & Stones',g:8.5,mk:2200,a:'ring',sz:['8','9','10','11']},
+{id:'q2',d:'Sky-blue feroza (turquoise) in a slim silver frame.',dm:'Stone 10 × 8 mm',o:'gift daily',st:6,s:'#3fb6b0',n:'Feroza Stone Ring',c:'Aqeeq & Stones',g:5.0,mk:1500,a:'ring',sz:['6','7','8','9','10'],nw:1},
+{id:'q3',d:'Deep red aqeeq ring with fine silver work on the sides.',dm:'Stone 12 × 9 mm',o:'gift',st:2,s:'#a3242e',n:'Red Aqeeq Ring',c:'Aqeeq & Stones',g:6.4,mk:1800,a:'ring',sz:['6','7','8','9','10','11']},
 {id:'m1',d:'Bold silver ring for men with a clean flat top.',dm:'Band width 6 mm',o:'men gift',st:5,im:'photo-1594588268457-82c37b451d53',n:"Men's Signet Ring",c:'Men',g:9.0,mk:1600,a:'ring',sz:['8','9','10','11']},
 {id:'m2',d:'Heavy curb-link silver bracelet for men.',dm:'Length 8 in (20 cm)',o:'men',st:3,im:'photo-1748354517189-60710ccde6cd',n:"Men's Link Bracelet",c:'Men',g:24.0,mk:2600,a:'bracelet'}
 ];
@@ -339,7 +361,15 @@ const SOC=[['Facebook','https://www.facebook.com/','<path d="M15 3h-2.5A3.5 3.5 
 const OCC=[['Bridal','photo-1631248622996-ac90313ddc2b'],['Daily wear','photo-1620968867360-5cda83d2bffd'],['Gifts','photo-1676485261309-784d67817972'],['Under Rs 3,000','photo-1765464281313-b3844388b316'],['Men','photo-1594588268457-82c37b451d53']];
 const OKEY={'Bridal':'bridal','Daily wear':'daily','Gifts':'gift','Men':'men'};
 const CARE='<ul><li>Keep in the zip pouch or box when not wearing.</li><li>Put on after perfume and make-up, take off before bathing or swimming.</li><li>If it darkens, rub gently with a soft silver cloth.</li></ul>';
-const POL={ship:['Shipping policy','<p>We deliver all over Pakistan by courier. Karachi orders usually arrive in 1–2 working days, other cities in 3–5 working days.</p><p>Delivery is free on orders above Rs 10,000, otherwise a flat charge applies, shown at checkout. You get a tracking number once your parcel is dispatched.</p>'],ret:['Return & exchange','<p>You can exchange any piece within 7 days of delivery if it is unused, undamaged and in its original box. Send us a WhatsApp message with your order number to start.</p><p>If a piece is not 925 silver, we refund the full amount. Customised and sale items cannot be exchanged.</p>'],priv:['Privacy policy','<p>We collect your name, phone number and address only to deliver your order and contact you about it.</p><p>We never sell or share your details with anyone except the courier company delivering your parcel. Payments by JazzCash or Easypaisa are handled by those services; we do not see or store your account details.</p>'],terms:['Terms of service','<p>Prices are worked out from the weight of each piece and the silver rate on the day you order, plus a making charge. The final price is the one confirmed with you on WhatsApp.</p><p>An order is confirmed once we reply to your WhatsApp message. Photos are for guidance; handmade pieces can vary slightly in weight and look.</p>']};
+const POL={ship:['Shipping policy','<p>We deliver all over Pakistan by courier.</p><table><thead><tr><th>City</th><th class="n">Delivery time</th></tr></thead><tbody><tr><td>Karachi</td><td class="n">1–2 working days</td></tr><tr><td>Lahore, Islamabad, Rawalpindi, Hyderabad</td><td class="n">2–3 working days</td></tr><tr><td>All other cities</td><td class="n">3–5 working days</td></tr></tbody></table><p>Delivery is free on orders above Rs 10,000, otherwise a flat charge applies, shown at checkout. You get a tracking number once your parcel is dispatched.</p>'],ret:['Return & exchange','<p>You can exchange any piece within 7 days of delivery if it is unused, undamaged and in its original box. Send us a WhatsApp message with your order number to start.</p><p>If a piece is not 925 silver, we refund the full amount. Customised and sale items cannot be exchanged.</p>'],priv:['Privacy policy','<p>We collect your name, phone number and address only to deliver your order and contact you about it.</p><p>We never sell or share your details with anyone except the courier company delivering your parcel. Payments by JazzCash or Easypaisa are handled by those services; we do not see or store your account details.</p>'],terms:['Terms of service','<p>Prices are worked out from the weight of each piece and the silver rate on the day you order, plus a making charge. The final price is the one confirmed with you on WhatsApp.</p><p>An order is confirmed once we reply to your WhatsApp message. Photos are for guidance; handmade pieces can vary slightly in weight and look.</p>']};
+const FAQ=[['Is your jewellery real silver?','Yes. Every piece is 925 sterling silver: 92.5% pure silver mixed with a little copper for strength. Each piece is stamped 925 and comes with a certificate of authenticity.'],
+['How is the price worked out?','Price = weight in grams × today\'s silver rate per gram + a fixed making charge. When the silver rate changes, prices change too. The rate is shown at the top of the site.'],
+['What is the difference between plain, rhodium, oxidised and gold plated?','Plain silver is the natural white shine. Rhodium plating adds a bright mirror finish and slows tarnishing. Oxidised silver is darkened on purpose for an antique look. Gold plated pieces are 925 silver with a layer of gold on top.'],
+['Will my silver turn black?','Silver darkens slowly when it meets air, sweat and perfume. Wipe it with a soft cloth and keep it in its pouch. Rhodium plated pieces darken much more slowly. We replate any piece free once a year.'],
+['How long does delivery take?','Karachi 1–2 working days, Lahore, Islamabad, Rawalpindi and Hyderabad 2–3 days, other cities 3–5 days. Cash on delivery everywhere.'],
+['Can I exchange if the size is wrong?','Yes, within 7 days of delivery if the piece is unused and in its box. Message us on WhatsApp with your order number.'],
+['Is your aqeeq natural?','Yes, our aqeeq and feroza stones are natural. Each stone is slightly different in colour and pattern, so your ring may vary a little from the photo.']];
+const JOURNAL=[['What does 925 really mean?','4 min read','<p>925 means the metal is 92.5% pure silver. Pure silver (999) is too soft to keep its shape, so a little copper is added for strength. This mix is called sterling silver and it is the standard for good jewellery all over the world.</p><p>Look for the small 925 stamp on the inside of a ring or on the clasp of a chain. If a seller cannot tell you the weight and purity, be careful: much of the "silver" sold online is plated brass.</p>'],['How to keep your silver shining','3 min read','<p>Put your jewellery on last, after perfume and cream, and take it off before a bath or the gym. Wipe it with a soft dry cloth after wearing.</p><p>Store each piece in its own zip pouch so pieces do not scratch each other. If a piece has darkened, a silver polishing cloth brings the shine back in a minute.</p>'],['Choosing a real aqeeq stone','5 min read','<p>Natural aqeeq has small marks, bands and colour changes inside the stone. A perfectly even, glassy colour is often a sign of glass or dyed stone.</p><p>Hold the stone up to the light: natural agate shows soft layers. Buy from a shop that tells you the stone\'s origin and gives a written guarantee.</p>']];
 const STEPS=['Pending','Confirmed','Dispatched','Delivered'];
 const TOLA=11.664;
 const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
@@ -351,7 +381,13 @@ const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 const rs=n=>'Rs '+Math.round(n).toLocaleString('en-PK');
 const perG=()=>cfg.rate/TOLA;
-const price=p=>Math.round((p.g*perG()+p.mk)/10)*10;
+const base=p=>Math.round((p.g*perG()+p.mk)/10)*10;
+const price=p=>p.sale?Math.round(base(p)*(1-p.sale/100)/10)*10:base(p);
+const FIN={'Plain silver':0,'Rhodium plated':400,'Oxidised':0,'Gold plated':900};
+const lineP=l=>price(byId(l.id))+(FIN[l.fin]||0);
+const sku=p=>'CS-'+p.id.toUpperCase()+String(Math.round(p.g*10)).padStart(3,'0');
+const priceHtml=p=>p.sale?`<span class="was"><s>${rs(base(p))}</s></span>${rs(price(p))}`:rs(price(p));
+const eta=c=>{c=String(c||'').toLowerCase();if(!c)return'';if(c.includes('karachi'))return'1–2 working days';if(/lahore|islamabad|rawalpindi|hyderabad/.test(c))return'2–3 working days';return'3–5 working days'};
 const byId=id=>P.find(p=>p.id===id);
 const waNum=()=>String(cfg.wa).replace(/\D/g,'');
 const U=(id,w,z)=>`https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&h=${w}&q=70${z?'&crop=focalpoint&fp-x=.5&fp-y=.5&fp-z='+z:''}`;
@@ -366,14 +402,14 @@ bracelet:`${shadow}<ellipse cx="100" cy="110" rx="66" ry="34" fill="none" stroke
 payal:`${shadow}<path d="M24 90 Q62 120 100 90 T176 90" fill="none" stroke="url(#sv)" stroke-width="4" stroke-dasharray="2 5" stroke-linecap="round"/>`,
 set:`${shadow}<path d="M34 28 Q100 150 166 28" fill="none" stroke="url(#sv)" stroke-width="6" stroke-dasharray="1 8" stroke-linecap="round"/><circle cx="100" cy="112" r="10" fill="#c23b5a"/>`
 };
-const art=p=>`<svg viewBox="0 0 200 200" role="img" aria-label="${esc(p.n)}">${ART[p.a]}</svg>`;
-const pic=(p,w,z)=>`<img src="${U(p.im,w||600,z)}" alt="${esc(p.n)}" loading="lazy" data-fb="${p.id}">`;
+const art=p=>`<svg viewBox="0 0 200 200" role="img" aria-label="${esc(p.n)}" style="background:radial-gradient(80% 80% at 50% 35%,#5d1a30,#2b0b16)">${p.s?ART[p.a].replace('#c23b5a',p.s):ART[p.a]}</svg>`;
+const pic=(p,w,z)=>!p.im?art(p):`<img src="${U(p.im,w||600,z)}" alt="${esc(p.n)}" loading="lazy" data-fb="${p.id}">`;
 const heartSvg='<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>';
 const avg=id=>{const r=revs[id]||[];return r.length?{a:r.reduce((s,x)=>s+x.r,0)/r.length,n:r.length}:null};
 const starStr=a=>'★★★★★'.slice(0,Math.round(a))+'☆☆☆☆☆'.slice(0,5-Math.round(a));
 
 const stockTxt=p=>{const n=stockOf(p);return n<=0?'<span class="stock">Sold out</span>':n<=3?`<span class="stock">Only ${n} left</span>`:''};
-const card=p=>{const v=avg(p.id),so=stockOf(p)<=0;return `<article class="card${so?' sold':''}"><button class="pad" data-open="${p.id}" aria-label="View ${esc(p.n)}">${pic(p)}</button>${p.nw?'<span class="tag">New</span>':''}<button class="heart" data-wish="${p.id}" aria-label="Save to wishlist" aria-pressed="${wish.includes(p.id)}">${heartSvg}</button><div class="info"><h3>${esc(p.n)}</h3><div class="meta">${esc(p.c)} · ${p.g} g · 925 silver</div>${v?`<div class="stars" aria-label="${v.a.toFixed(1)} of 5">${starStr(v.a)} <span class="meta">(${v.n})</span></div>`:''}${stockTxt(p)}<div class="row"><div class="price">${rs(price(p))}</div><button class="add" data-open="${p.id}" ${so?'disabled':''}>${so?'Sold out':'Add'}</button></div></div></article>`};
+const card=p=>{const v=avg(p.id),so=stockOf(p)<=0;return `<article class="card${so?' sold':''}"><button class="pad" data-open="${p.id}" aria-label="View ${esc(p.n)}">${pic(p)}</button>${p.sale?`<span class="tag sale">−${p.sale}%</span>`:p.nw?'<span class="tag">New</span>':''}<button class="heart" data-wish="${p.id}" aria-label="Save to wishlist" aria-pressed="${wish.includes(p.id)}">${heartSvg}</button><div class="info"><h3>${esc(p.n)}</h3><div class="meta">${esc(p.c)} · ${p.g} g · 925 silver</div>${v?`<div class="stars" aria-label="${v.a.toFixed(1)} of 5">${starStr(v.a)} <span class="meta">(${v.n})</span></div>`:''}${stockTxt(p)}<div class="row"><div class="price">${priceHtml(p)}</div><button class="add" data-open="${p.id}" ${so?'disabled':''}>${so?'Sold out':'Add'}</button></div></div></article>`};
 
 function renderRate(){$('rateTola').textContent=rs(cfg.rate)+' / tola';$('rateGram').textContent=rs(perG())+' per gram';$('offer').textContent=`Free delivery above Rs 10,000 · Use code ${cfg.code||'—'} for ${cfg.off||0}% off`;$('waText').textContent='+'+waNum()}
 function renderChips(){const cats=['All','New','Wishlist',...new Set(P.map(p=>p.c))];if(!cats.includes(cat))cats.push(cat);$('chips').innerHTML=cats.map(c=>`<button data-c="${esc(c)}" aria-pressed="${c===cat}">${c==='Wishlist'?'♡ ':''}${esc(c)}</button>`).join('')}
@@ -386,14 +422,15 @@ $('wcount').textContent=wish.length;
 }
 function openProduct(id){
 const p=byId(id),v=avg(p.id),rv=revs[p.id]||[];
-const shots=[[0,''],[1,'2'],[2,'3']];
-$('mbox').innerHTML=`<div class="gal"><div class="pad zoom" id="zm">${pic(p,900)}</div><div class="thumbs">${shots.map(([i,z])=>`<button data-z="${z}" aria-label="View ${i+1}" aria-pressed="${i===0}">${pic(p,160,z)}</button>`).join('')}</div><p class="meta" style="margin:0">Tap the photo to zoom.</p></div>
-<div class="txt"><div class="meta">${esc(p.c)}${p.nw?' · New':''}</div><h2>${esc(p.n)}</h2>${v?`<div class="stars">${starStr(v.a)} <span class="meta">${v.a.toFixed(1)} · ${v.n} review${v.n>1?'s':''}</span></div>`:''}<div class="price" style="font-size:24px">${rs(price(p))}</div>
-<div class="brk"><div><span>${p.g} g × ${rs(perG())}/g</span><span>${rs(p.g*perG())}</span></div><div><span>Making charge</span><span>${rs(p.mk)}</span></div></div>
+const shots=p.im?[[0,''],[1,'2'],[2,'3']]:[];
+$('mbox').innerHTML=`<div class="gal"><div class="pad zoom" id="zm">${pic(p,900)}</div><div class="thumbs">${shots.map(([i,z])=>`<button data-z="${z}" aria-label="View ${i+1}" aria-pressed="${i===0}">${pic(p,160,z)}</button>`).join('')}</div>${p.im?'<p class="meta" style="margin:0">Tap the photo to zoom.</p>':'<p class="meta" style="margin:0">Photo coming soon.</p>'}</div>
+<div class="txt"><div class="meta">${esc(p.c)}${p.nw?' · New':''}</div><h2>${esc(p.n)}</h2>${v?`<div class="stars">${starStr(v.a)} <span class="meta">${v.a.toFixed(1)} · ${v.n} review${v.n>1?'s':''}</span></div>`:''}<div class="price" style="font-size:24px" id="mprice">${priceHtml(p)}</div><div class="meta">Code: ${sku(p)}${p.sale?` · Sale ${p.sale}% off`:''}</div>
+<div class="brk"><div><span>${p.g} g × ${rs(perG())}/g</span><span>${rs(p.g*perG())}</span></div><div><span>Making charge</span><span>${rs(p.mk)}</span></div>${p.sale?`<div><span>Sale discount</span><span>− ${rs(base(p)-price(p))}</span></div>`:''}<div id="mfinRow" hidden><span>Finish</span><span id="mfinV"></span></div></div>
+<label>Finish<select class="inp" id="mfin">${Object.entries(FIN).map(([k,v])=>`<option value="${k}">${k}${v?' (+'+rs(v)+')':''}</option>`).join('')}</select></label>
 ${p.sz?`<label>Size<select class="inp" id="msz">${p.sz.map(s=>`<option>${esc(s)}</option>`).join('')}</select></label><button class="lnk" id="msize">Not sure of your size? See the size guide</button>`:''}
 <p style="margin:0">${esc(p.d)}</p>${stockTxt(p)}
 <button class="btn" id="madd" ${stockOf(p)<=0?'disabled':''}>${stockOf(p)<=0?'Sold out':'Add to cart'}</button><button class="btn ghost" id="mwish">${wish.includes(p.id)?'♥ In wishlist':'♡ Save to wishlist'}</button>
-<details open><summary>Details</summary><ul><li>Metal: 925 sterling silver, stamped</li><li>Weight: ${p.g} g</li><li>Size: ${esc(p.dm)}</li></ul></details>
+<details open><summary>Details</summary><ul><li>Metal: 925 sterling silver, stamped</li><li>Comes with a certificate of authenticity</li><li>Weight: ${p.g} g</li><li>Size: ${esc(p.dm)}</li></ul></details>
 <details><summary>Caring for your silver</summary>${CARE}</details>
 <details><summary>Delivery & exchange</summary><p>COD all over Pakistan, 1–5 working days. 7-day exchange if unused and in the box.</p></details>
 <div class="rev"><h3 style="font-size:20px">Reviews</h3>${rv.length?rv.map(r=>`<div class="r"><span class="stars">${starStr(r.r)}</span> <b>${esc(r.n)}</b><div>${esc(r.t)}</div></div>`).join(''):'<p class="meta" style="margin:0">No reviews yet. Bought this piece? Be the first to review it.</p>'}
@@ -404,39 +441,41 @@ const zm=$('zm');
 zm.onclick=()=>zm.classList.toggle('z');
 zm.onpointermove=e=>{const r=zm.getBoundingClientRect(),im=zm.querySelector('img');if(im)im.style.transformOrigin=`${(e.clientX-r.left)/r.width*100}% ${(e.clientY-r.top)/r.height*100}%`};
 $('mbox').querySelector('.thumbs').onclick=e=>{const b=e.target.closest('button');if(!b)return;zm.classList.remove('z');zm.innerHTML=pic(p,900,b.dataset.z);$('mbox').querySelectorAll('.thumbs button').forEach(x=>x.setAttribute('aria-pressed',x===b))};
-$('madd').onclick=()=>{addToCart(p.id,p.sz?$('msz').value:'');closeAll();openCart()};
+$('mfin').onchange=()=>{const f=$('mfin').value,x=FIN[f]||0;$('mfinRow').hidden=!x;$('mfinV').textContent=rs(x);$('mprice').innerHTML=x?rs(price(p)+x):priceHtml(p)};
+$('madd').onclick=()=>{addToCart(p.id,p.sz?$('msz').value:'',$('mfin').value);closeAll();openCart()};
 $('mwish').onclick=()=>{toggleWish(p.id);openProduct(p.id)};
 if($('msize'))$('msize').onclick=()=>{closeAll();location.hash='size'};
 $('rform').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target);(revs[p.id]=revs[p.id]||[]).unshift({n:f.get('n').trim(),r:+f.get('r'),t:f.get('t').trim()});store.set('cs_rev',revs);renderGrid();openProduct(p.id)};
 $('mclose').onclick=closeAll;
 }
 function toggleWish(id){wish=wish.includes(id)?wish.filter(x=>x!==id):[...wish,id];store.set('cs_wish',wish);renderGrid()}
-function addToCart(id,size){if(stockOf(byId(id))<=0)return;const l=cart.find(x=>x.id===id&&x.size===size);l?l.qty++:cart.push({id,size,qty:1});save()}
+function addToCart(id,size,fin){if(stockOf(byId(id))<=0)return;fin=fin||'Plain silver';const l=cart.find(x=>x.id===id&&x.size===size&&x.fin===fin);l?l.qty++:cart.push({id,size,fin,qty:1});save()}
 function save(){store.set('cs_cart',cart);$('ccount').textContent=cart.reduce((a,l)=>a+l.qty,0)}
-function totals(gift){const sub=cart.reduce((a,l)=>a+price(byId(l.id))*l.qty,0);const disc=applied&&applied===String(cfg.code).toUpperCase()?Math.round(sub*(+cfg.off||0)/100):0;const del=sub===0||sub>=10000?0:+cfg.del||0;const g=gift?+cfg.gift||0:0;return{sub,disc,del,g,tot:sub-disc+del+g}}
+function totals(gift){const sub=cart.reduce((a,l)=>a+lineP(l)*l.qty,0);const disc=applied&&applied===String(cfg.code).toUpperCase()?Math.round(sub*(+cfg.off||0)/100):0;const del=sub===0||sub>=10000?0:+cfg.del||0;const g=gift?+cfg.gift||0:0;return{sub,disc,del,g,tot:sub-disc+del+g}}
 function sumHtml(t){return `<div><span>Subtotal</span><span>${rs(t.sub)}</span></div>${t.disc?`<div><span>Discount (${esc(applied)})</span><span>− ${rs(t.disc)}</span></div>`:''}<div><span>Delivery</span><span>${t.del?rs(t.del):'Free'}</span></div>${t.g?`<div><span>Gift box</span><span>${rs(t.g)}</span></div>`:''}<div class="tot"><span>Total</span><span>${rs(t.tot)}</span></div>`}
 function renderCart(){
 $('dTitle').textContent='Your cart';
 if(!cart.length){$('dbody').innerHTML='<p class="empty">Your cart is empty.</p>';$('dsum').innerHTML='';return}
-$('dbody').innerHTML=cart.map((l,i)=>{const p=byId(l.id);return `<div class="line"><div class="th">${pic(p,160)}</div><div><div style="font-weight:600">${esc(p.n)}</div><div class="meta">${l.size?'Size '+esc(l.size)+' · ':''}${rs(price(p))}</div></div><div class="qty"><button data-q="${i}" data-d="-1" aria-label="Less">−</button><span>${l.qty}</span><button data-q="${i}" data-d="1" aria-label="More">+</button></div></div>`}).join('');
+$('dbody').innerHTML=cart.map((l,i)=>{const p=byId(l.id);return `<div class="line"><div class="th">${pic(p,160)}</div><div><div style="font-weight:600">${esc(p.n)}</div><div class="meta">${l.size?'Size '+esc(l.size)+' · ':''}${l.fin&&l.fin!=='Plain silver'?esc(l.fin)+' · ':''}${rs(lineP(l))}</div></div><div class="qty"><button data-q="${i}" data-d="-1" aria-label="Less">−</button><span>${l.qty}</span><button data-q="${i}" data-d="1" aria-label="More">+</button></div></div>`}).join('');
 $('dsum').innerHTML=sumHtml(totals())+'<button class="btn" id="checkout">Checkout</button>';
 $('checkout').onclick=renderCheckout;
 }
 function renderCheckout(){
 $('dTitle').textContent='Checkout';
-$('dbody').innerHTML=`<form class="form" id="cform"><label>Full name<input class="inp" name="name" required autocomplete="name"></label><label>Phone<input class="inp" name="phone" type="tel" required placeholder="03xx xxxxxxx" autocomplete="tel"></label><label>City<input class="inp" name="city" required></label><label>Address<input class="inp" name="addr" required autocomplete="street-address"></label>
+$('dbody').innerHTML=`<form class="form" id="cform"><label>Full name<input class="inp" name="name" required autocomplete="name"></label><label>Phone<input class="inp" name="phone" type="tel" required placeholder="03xx xxxxxxx" autocomplete="tel"></label><label>City<input class="inp" name="city" id="cityI" required></label><div class="eta" id="etaM"></div><label>Address<input class="inp" name="addr" required autocomplete="street-address"></label>
 <div><div style="font-size:14px;margin-bottom:6px">Payment</div><div class="pay">${['Cash on delivery','JazzCash','Easypaisa'].map((m,i)=>`<label><input type="radio" name="pay" value="${m}" ${i?'':'checked'}>${m}</label>`).join('')}</div></div>
 <label class="chk"><input type="checkbox" name="gift" id="giftC"> Add a velvet gift box (${rs(cfg.gift)})</label>
 <div><div style="font-size:14px;margin-bottom:6px">Discount code</div><div class="code"><input class="inp" id="codeI" value="${esc(applied)}" placeholder="e.g. EID10" autocapitalize="characters"><button type="button" class="btn ghost" id="codeB">Apply</button></div><div id="codeM"></div></div>
 <button class="btn">Place order on WhatsApp</button><button type="button" class="btn ghost" id="back">Back to cart</button></form>`;
 const upd=()=>{$('dsum').innerHTML=sumHtml(totals($('giftC').checked))};upd();
 $('giftC').onchange=upd;
+$('cityI').oninput=()=>{const e=eta($('cityI').value);$('etaM').textContent=e?'Estimated delivery: '+e:''};
 $('codeB').onclick=()=>{const c=$('codeI').value.trim().toUpperCase();if(c&&c===String(cfg.code).toUpperCase()){applied=c;$('codeM').innerHTML=`<span class="ok">Code applied: ${+cfg.off}% off</span>`}else{applied='';$('codeM').innerHTML='<span class="bad">This code is not valid</span>'}upd()};
 $('back').onclick=renderCart;
 $('cform').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target);const gift=!!f.get('gift');const t=totals(gift);
 const oid='CS-'+String(Date.now()).slice(-4);
-const items=cart.map(l=>{const p=byId(l.id);return `• ${p.n}${l.size?' (size '+l.size+')':''} × ${l.qty} = ${rs(price(p)*l.qty)}`}).join('\n');
-const msg=`New order ${oid} – Chandni Silver\n\n${items}\n\nSubtotal: ${rs(t.sub)}${t.disc?`\nDiscount (${applied}): -${rs(t.disc)}`:''}\nDelivery: ${t.del?rs(t.del):'Free'}${gift?`\nGift box: ${rs(t.g)}`:''}\nTotal: ${rs(t.tot)}\n\nName: ${f.get('name')}\nPhone: ${f.get('phone')}\nCity: ${f.get('city')}\nAddress: ${f.get('addr')}\nPayment: ${f.get('pay')}\nSilver rate: ${rs(cfg.rate)}/tola`;
+const items=cart.map(l=>{const p=byId(l.id);return `• ${p.n} [${sku(p)}]${l.size?' (size '+l.size+')':''}${l.fin&&l.fin!=='Plain silver'?' – '+l.fin:''} × ${l.qty} = ${rs(lineP(l)*l.qty)}`}).join('\n');
+const msg=`New order ${oid} – Chandni Silver\n\n${items}\n\nSubtotal: ${rs(t.sub)}${t.disc?`\nDiscount (${applied}): -${rs(t.disc)}`:''}\nDelivery: ${t.del?rs(t.del):'Free'}${gift?`\nGift box: ${rs(t.g)}`:''}\nTotal: ${rs(t.tot)}\n\nName: ${f.get('name')}\nPhone: ${f.get('phone')}\nCity: ${f.get('city')}\nAddress: ${f.get('addr')}\nPayment: ${f.get('pay')}\nDelivery estimate: ${eta(f.get('city'))}\nCertificate of authenticity: included\nSilver rate: ${rs(cfg.rate)}/tola`;
 cart.forEach(l=>{const p=byId(l.id);stockO[p.id]=Math.max(0,stockOf(p)-l.qty)});store.set('cs_stock',stockO);renderGrid();renderStock();
 orders.unshift({id:oid,name:String(f.get('name')),phone:String(f.get('phone')).replace(/\D/g,''),total:t.tot,st:0,d:new Date().toLocaleDateString('en-PK')});store.set('cs_orders',orders);renderOrders();
 $('dTitle').textContent='Send your order';$('dsum').innerHTML='';
@@ -470,6 +509,9 @@ $('olist').onchange=e=>{const s=e.target.closest('[data-o]');if(!s)return;orders
 const A={aRate:'rate',aDel:'del',aWa:'wa',aCode:'code',aOff:'off',aGift:'gift',aPin:'pin'};
 for(const [i,k] of Object.entries(A)){$(i).value=cfg[k];$(i).oninput=()=>{const v=$(i).value;cfg[k]=(k==='wa'||k==='code'||k==='pin')?v.trim().toUpperCase():Math.max(0,+v||0);store.set('cs_cfg',cfg);renderAll();setWa()}}
 document.addEventListener('error',e=>{const t=e.target;if(t.tagName==='IMG'&&t.dataset.fb){t.outerHTML=art(byId(t.dataset.fb))}else if(t.id==='heroImg')t.remove()},true);
+$('faqList').innerHTML=FAQ.map(([q,a],i)=>`<details ${i?'':'open'}><summary>${q}</summary><p>${a}</p></details>`).join('');
+$('jgrid').innerHTML=JOURNAL.map(([t,m],i)=>`<button class="jcard" data-j="${i}"><span class="meta">${m}</span><h3>${t}</h3><span class="lnk">Read</span></button>`).join('');
+$('jgrid').onclick=e=>{const b=e.target.closest('[data-j]');if(!b)return;const [t,m,h]=JOURNAL[+b.dataset.j];$('mbox').innerHTML=`<div class="ptxt"><div class="meta">${m}</div><h2>${t}</h2>${h}<button class="btn ghost" id="pclose">Close</button></div>`;$('modal').classList.add('on');$('scrim').classList.add('on');$('pclose').onclick=closeAll};
 function setWa(){const u='https://wa.me/'+waNum();$('wafab').href=u+'?text='+encodeURIComponent('Hi, I have a question about Chandni Silver jewellery');const a=document.querySelector('[data-s=WhatsApp]');if(a)a.href=u}
 function renderStock(){$('stk').innerHTML=P.map(p=>`<div><span>${esc(p.n)}</span><input class="inp" type="number" min="0" data-st="${p.id}" value="${stockOf(p)}" aria-label="Stock of ${esc(p.n)}"></div>`).join('')}
 $('stk').oninput=e=>{const i=e.target.closest('[data-st]');if(!i)return;stockO[i.dataset.st]=Math.max(0,+i.value||0);store.set('cs_stock',stockO);renderGrid()};
