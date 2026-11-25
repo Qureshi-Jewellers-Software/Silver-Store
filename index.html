@@ -218,43 +218,114 @@ details p,details ul{margin:8px 0 0;color:var(--muted)}
 @media(max-width:860px){nav{display:none}.logo{margin-right:auto}}
 @media(max-width:760px){.hero .wrap,.two,.box{grid-template-columns:minmax(0,1fr)}.hero .wrap{min-height:0}.tray{max-height:320px}}
 @media(max-width:600px){.hbar{flex-wrap:wrap;gap:8px;padding-bottom:8px}header .search{flex:1 1 100%;min-height:40px;padding:6px 16px}header .wrap{flex-wrap:nowrap;gap:8px;padding-block:8px}.logo{font-size:19px;gap:6px}.cartbtn{padding:6px 10px;min-height:40px}html{scroll-padding-top:170px}.hbtns{gap:6px}}
+/* ---- White theme (like the reference store) ---- */
+:root,:root[data-theme]{color-scheme:light;--bg:#fff;--ink:#1a1a1a;--muted:#6b6b6b;--card:#fff;--line:#ececec;--btn:#1a1a1a;--btnink:#fff;--pearl:#b08d57;--soft:#f6f5f3}
+body{background:#fff;color:#1a1a1a}
+h1,h2,h3{font-family:Marcellus,Georgia,serif}
+.offer{background:#1a1a1a;color:#fff;font-size:13px;letter-spacing:.02em;min-height:36px;display:flex;align-items:center;justify-content:center}
+header{background:#fff;color:#1a1a1a;border-bottom:1px solid var(--line)}
+.hrow{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;max-width:1240px;margin:0 auto;padding:10px max(4vw,12px)}
+.hl,.hr{display:flex;align-items:center;gap:4px}.hr{justify-content:flex-end}
+.ib{position:relative;min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:6px;background:none;border:0;color:#1a1a1a;text-decoration:none;font-size:14px}
+.ib b{position:absolute;top:4px;right:2px;background:#1a1a1a;color:#fff;border-radius:99px;font-size:10px;min-width:16px;height:16px;line-height:16px;padding:0 4px;text-align:center}
+.cartb span{font-size:14px;white-space:nowrap;padding-left:4px}
+.logo{color:#1a1a1a;font-size:26px;letter-spacing:.04em;flex-direction:column;gap:2px;line-height:1}
+.logo span{font-family:Marcellus,serif}
+.langbtn{border:1px solid var(--line);color:#1a1a1a;min-height:36px;font-size:14px}
+.sbar{max-width:1240px;margin:0 auto;padding:0 max(4vw,12px) 10px}.sbar .search{width:100%;background:#fff;border-color:#ccc;color:#1a1a1a}
+.cats{border-top:1px solid var(--line);display:block!important}
+.cats .chips{justify-content:safe center;gap:0;margin:0;padding:0 8px}
+.cats .chips button{border:0;border-radius:0;background:none;color:#1a1a1a;font-size:14px;letter-spacing:.03em;min-height:46px;padding:10px 14px;text-transform:uppercase;border-bottom:2px solid transparent}
+.cats .chips button[aria-pressed=true]{background:none;color:#1a1a1a;border-bottom-color:#1a1a1a}
+#shop{padding-top:20px}
+.crumb{font-size:13px;color:var(--muted);text-align:center}.crumb a{color:var(--muted)}
+.ctitle{text-align:center;font-size:clamp(30px,4vw,44px);margin:8px 0 6px}
+.rate{background:none;border:0;display:flex;gap:6px 18px;flex-wrap:wrap;justify-content:center;align-items:baseline;padding:4px 0 16px}
+.rate strong{font-size:20px}
+.trust{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;background:var(--soft);border-radius:4px;padding:14px;margin-bottom:22px}
+.trust div{display:flex;align-items:center;justify-content:center;gap:10px;font-size:14px;text-align:left}
+.toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;border-block:1px solid var(--line);padding:8px 0;margin-bottom:22px}
+.fbtn{display:inline-flex;align-items:center;gap:8px;min-height:44px;background:none;border:0;color:#1a1a1a;font-size:15px;padding:0 4px}
+.sortl{flex-direction:row;align-items:center;gap:8px}
+.sort{border-radius:4px;border-color:#ccc;background:#fff;color:#1a1a1a;min-height:40px}
+.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 20px}
+.card{border:0;border-radius:0;background:none}
+.pad{background:var(--soft)!important;border-radius:4px}
+.pad img{mix-blend-mode:multiply}
+.heart{background:#fff;width:38px;height:38px;color:#1a1a1a;box-shadow:0 1px 4px #0002}
+.tag{background:#1a1a1a;color:#fff;border-radius:2px;font-weight:500}.tag.sale{background:#b3261e}
+.card .info{padding:12px 2px 0;align-items:center;text-align:center;gap:3px}
+.card h3{font-size:16px;font-family:Jost,sans-serif;font-weight:500}
+.card .desc{font-size:13px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.price{font-size:16px;padding-top:2px;margin-top:0}
+.cbtns{display:grid;grid-template-columns:1fr 1fr;gap:6px;width:100%;margin-top:8px}
+.cbtns button{min-height:40px;border-radius:2px;font-size:13px;letter-spacing:.03em;border:1px solid #1a1a1a;background:#fff;color:#1a1a1a}
+.cbtns .qs{background:#1a1a1a;color:#fff}
+.btn{border-radius:2px;letter-spacing:.03em}
+.promise,.rate{background:var(--soft)}
+.rate{background:none}
+.occ button{border-radius:4px}
+.admin{background:#1a1a1a}
+footer{background:var(--soft);color:#1a1a1a}
+.fgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+footer h3{font-size:18px;margin-bottom:8px}
+footer .flinks{gap:4px}footer .flinks span{font-size:15px;color:#444}
+footer .flinks button,footer .flinks a{color:#1a1a1a;text-decoration:none;font-size:15px;padding:3px 0}
+footer .flinks button:hover,footer .flinks a:hover{text-decoration:underline}
+footer .social a{color:#1a1a1a;border-color:#ccc}
+footer .inp{background:#fff;color:#1a1a1a;border-color:#ccc}
+.fbot{border-top:1px solid #ddd;margin-top:28px;padding-top:18px;display:flex;flex-direction:column;gap:10px;align-items:center}
+.pays{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}.payb{font-size:12px;border:1px solid #ccc;border-radius:4px;padding:3px 8px;background:#fff}
+.demo{color:#777;text-align:center}
+.drawer,.box{background:#fff}
+.fpanel{padding:22px;grid-column:1/-1;display:grid;gap:14px}
+.fpanel fieldset{border:1px solid var(--line);border-radius:4px;padding:10px 12px;display:grid;gap:6px}
+.fpanel legend{font-weight:600;padding:0 4px}
+.fpanel label{flex-direction:row;align-items:center;gap:8px;font-size:15px;min-height:32px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.fgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 12px}.cbtns{grid-template-columns:1fr}.trust{grid-template-columns:1fr;gap:6px;padding:10px}.trust div{justify-content:flex-start}.cartb span{display:none}.logo{font-size:17px}.logo svg{width:22px;height:22px}.hr .ib{min-width:40px}.hr a.ib{display:none}.hrow{padding:6px 8px}.fgrid{grid-template-columns:minmax(0,1fr)}
+.bnav{background:#fff;border-top:1px solid var(--line)}.bnav a,.bnav button{color:#1a1a1a}.bnav b{background:#1a1a1a;color:#fff}.hl .langbtn{padding:4px 8px}.cats .chips{justify-content:flex-start}}
 </style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-<linearGradient id="sv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#c9ced6"/><stop offset=".6" stop-color="#8a9099"/><stop offset=".8" stop-color="#e4e7ec"/><stop offset="1" stop-color="#9aa0a8"/></linearGradient>
+<linearGradient id="sv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9ebee"/><stop offset=".35" stop-color="#a7adb5"/><stop offset=".6" stop-color="#6f757d"/><stop offset=".8" stop-color="#c5c9cf"/><stop offset="1" stop-color="#7d838b"/></linearGradient>
 <radialGradient id="sh" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#000" stop-opacity=".45"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
 </defs></svg>
 
-<div class="offer" id="offer">Free delivery above Rs 10,000 · Use code EID10 for 10% off</div>
-<header><div class="wrap">
-<a class="logo" href="#top"><svg width="26" height="26" viewBox="0 0 40 40"><path d="M28 6a15 15 0 1 0 6 22A12 12 0 1 1 28 6z" fill="url(#sv)"/></svg>Chandni Silver</a>
-<nav><a href="#new">New</a><a href="#shop">Shop</a><a href="#size">Size guide</a><a href="#track">Track order</a><a href="#custom">Custom order</a><a href="#faq">FAQ</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
-<div class="hbtns"><button class="langbtn" id="lang" aria-label="Change language">اردو</button><button class="cartbtn" id="openWish" aria-label="Wishlist">♡ <b id="wcount">0</b></button><button class="cartbtn" id="openCart" aria-label="Open cart">Cart <b id="ccount">0</b></button></div>
+<div class="offer"><span id="offer">Free cash on delivery all over Pakistan</span></div>
+
+
+<header>
+<div class="hrow">
+<div class="hl"><button class="ib" id="sBtn" aria-label="Search"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg></button><button class="langbtn" id="lang" aria-label="Change language">اردو</button></div>
+<a class="logo" href="#top"><svg width="30" height="30" viewBox="0 0 40 40" aria-hidden="true"><path d="M28 6a15 15 0 1 0 6 22A12 12 0 1 1 28 6z" fill="#1a1a1a"/></svg><span>Chandni Silver</span></a>
+<div class="hr"><a class="ib" href="#track" aria-label="Account"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></a><button class="ib" id="openWish" aria-label="Wishlist"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><b id="wcount">0</b></button><button class="ib cartb" id="openCart" aria-label="Open cart"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><b id="ccount">0</b><span id="ctot">Rs 0</span></button></div>
 </div>
-<div class="hbar"><input class="search" id="q" type="search" placeholder="Search rings, jhumkay…" aria-label="Search products"><div class="chips" id="chips"></div></div>
+<div class="sbar" id="sbar" hidden><input class="search" id="q" type="search" placeholder="Search rings, jhumkay…" aria-label="Search products"></div>
+<nav class="cats" aria-label="Categories"><div class="chips" id="chips"></div></nav>
 </header>
 
-<section class="hero band" id="top"><div class="wrap">
-<div>
-<h1>Pure 925 silver jewellery, priced by today's rate</h1>
-<p>Rings, jhumkay, necklaces, bracelets and payal in sterling silver. Every price comes from the item's weight and today's silver rate, so you always pay a fair price.</p>
-<div class="acts"><a class="btn" href="#shop">Shop now</a><a class="btn ghost" href="#new">New arrivals</a></div>
-</div>
-<div class="tray">
-<svg viewBox="0 0 400 350" aria-hidden="true">
-<defs><radialGradient id="vp" cx=".5" cy=".55" r=".55"><stop offset="0" stop-color="#7a2642"/><stop offset="1" stop-color="#3a0f1e"/></radialGradient></defs>
-<ellipse cx="200" cy="262" rx="180" ry="58" fill="url(#vp)"/>
-<ellipse cx="200" cy="196" rx="105" ry="72" fill="none" stroke="url(#sv)" stroke-width="26"/>
-<path d="M176 100 L200 60 L224 100 L200 128 Z" fill="#b0244a"/>
-</svg>
-<img class="heroimg" id="heroImg" src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1000&h=860&q=75" alt="Silver ring in a box">
-</div>
-</div></section>
 
-<div class="rate"><div class="wrap">
+
+
+<section class="band" id="shop"><div class="wrap">
+<div class="crumb"><a href="#top">Home</a> / <span>Silver Jewelry</span></div>
+<h1 class="ctitle" id="top">Silver Jewelry</h1>
+<div class="rate">
 <strong id="rateTola">—</strong><span id="rateGram">—</span><span class="rchg" id="rateChg"></span><details><summary>Last 7 days</summary><table style="margin-top:6px;max-width:320px"><tbody id="rateHist"></tbody></table></details>
-</div></div>
+</div>
+<div class="trust">
+<div><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7" width="12" height="9" rx="1"/><path d="M14.5 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg><span>Free shipping across Pakistan</span></div>
+<div><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.3-5.6"/><path d="M4 4v4h4"/></svg><span>Easy returns & exchange</span></div>
+<div><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13v-1a8 8 0 0 1 16 0v1"/><rect x="3" y="13" width="4" height="6" rx="1.5"/><rect x="17" y="13" width="4" height="6" rx="1.5"/></svg><span>24-hour support</span></div>
+</div>
+<div class="toolbar"><button class="fbtn" id="fBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg><span>Filter</span></button><span class="meta" id="count"></span>
+<label class="sortl"><span class="meta">Sort by</span><select class="sort" id="sort" aria-label="Sort"><option value="">Featured</option><option value="best">Best selling</option><option value="az">Alphabetically, A-Z</option><option value="za">Alphabetically, Z-A</option><option value="lo">Price, low to high</option><option value="hi">Price, high to low</option><option value="old">Date, old to new</option><option value="new">Date, new to old</option></select></label></div>
+<div class="grid" id="grid"></div>
+<div style="text-align:center;margin-top:28px"><button class="btn ghost" id="more">Load more</button></div>
+<p class="meta" style="margin-top:18px;text-align:center">Demo: sample products, free photos from Unsplash. The shop's own photos will replace them.</p>
+</div></section>
 
 <section class="band" id="occasion"><div class="wrap">
 <h2 class="sec-t">Shop by occasion</h2><p class="sub">Find the right piece faster.</p>
@@ -267,12 +338,7 @@ details p,details ul{margin:8px 0 0;color:var(--muted)}
 <div class="rail" id="rail"></div>
 </div></section>
 
-<section class="band" id="shop" style="padding-top:0"><div class="wrap">
-<div class="shophead"><h2 class="sec-t">The collection</h2>
-<div class="tools"><select class="sort" id="pr" aria-label="Price range"><option value="">Any price</option><option value="0-3000">Under Rs 3,000</option><option value="3000-6000">Rs 3,000 – 6,000</option><option value="6000-10000">Rs 6,000 – 10,000</option><option value="10000-1e9">Above Rs 10,000</option></select><select class="sort" id="sort" aria-label="Sort"><option value="">Sort: featured</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option><option value="w">Weight: light first</option></select></div></div>
-<div class="grid" id="grid"></div>
-<p class="meta" style="margin-top:18px">Demo: sample products, free photos from Unsplash. The shop's own photos will replace them.</p>
-</div></section>
+
 
 <section class="band promise"><div class="wrap pgrid">
 <div><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v6c0 4-3 7.5-7 9-4-1.5-7-5-7-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><h3>925 silver guarantee</h3><p>Every piece is 92.5% sterling silver and carries the 925 stamp. If it isn't, you get your full money back.</p></div>
@@ -351,20 +417,23 @@ details p,details ul{margin:8px 0 0;color:var(--muted)}
 </div>
 </div></section>
 
-<footer class="band"><div class="wrap">
-<div><div class="logo" style="font-size:20px">Chandni Silver</div><div>Handmade 925 silver jewellery<br>Cash on delivery all over Pakistan</div></div>
-<div class="flinks"><div style="margin-bottom:4px">Help</div><a href="#size">Size guide</a><a href="#track">Track order</a><a href="#faq">FAQ</a><a href="#journal">Silver journal</a><a href="#about">About us</a><a href="#contact">Contact</a></div>
-<div class="flinks"><div style="margin-bottom:4px">Policies</div><button data-pol="ship">Shipping policy</button><button data-pol="ret">Return & exchange</button><button data-pol="priv">Privacy policy</button><button data-pol="terms">Terms of service</button></div>
-<div><div style="margin-bottom:8px">Follow us</div><div class="social" id="social"></div></div>
-<div class="demo" style="flex-basis:100%">Demo store: sample names, prices, rate, address and social links.</div>
-</div></footer>
 
+
+<footer class="band"><div class="wrap fgrid">
+<div class="flinks"><h3>Contact us</h3><span>info@chandnisilver.pk</span><span>0300 1234567</span><span>021 3456 7890</span><a href="https://www.google.com/maps?q=Saddar%20Karachi" target="_blank" rel="noopener">Our Karachi store</a><div class="social" id="social"></div></div>
+<div class="flinks"><h3>Quick links</h3><a href="#contact">Contact us</a><button data-pol="terms">Terms of service</button><button data-pol="priv">Privacy policy</button><a href="#contact">Karachi store</a><a href="#size">Size guide</a><a href="#track">Track order</a></div>
+<div class="flinks"><h3>Information</h3><a href="#about">About us</a><a href="#contact">Buy at store</a><button data-pol="after">After sale service</button><button data-pol="ret">Refund & exchange policy</button><a href="#faq">FAQs</a><button data-pol="how">How to order</button><button data-pol="care">Jewelry care</button><button data-pol="ship">Shipping policy</button><a href="#journal">Silver journal</a></div>
+<div class="flinks"><h3>Newsletter</h3><span>Sign up and get 5% off your first order.</span><form id="nform" class="code"><input class="inp" type="email" placeholder="Your email" aria-label="Email" required><button class="btn">Subscribe</button></form><div id="nres"></div></div>
+</div>
+<div class="wrap fbot"><div class="pays"><span class="payb">Cash on delivery</span><span class="payb">JazzCash</span><span class="payb">Easypaisa</span><span class="payb">Visa</span><span class="payb">Mastercard</span><span class="payb">Bank transfer</span></div><div class="demo">Chandni Silver (Pvt) Ltd · NTN 1234567-8 · © 2026 Chandni Silver. Demo store: sample names, prices, rate, address and links.</div></div>
+</footer>
 <a class="wafab" id="wafab" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-4A8 8 0 1 1 8.4 19z"/><path d="M9 9.5c.3 2.3 2.2 4.2 4.5 4.6l1.2-1.2 1.8.8"/></svg></a>
 <nav class="bnav" aria-label="Quick menu">
-<a href="#top"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9H5v-9"/></svg><span>Home</span></a>
-<a href="#shop"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span>Shop</span></a>
-<button id="bWish"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span>Wishlist</span><b id="bw">0</b></button>
-<button id="bCart"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/><path d="M3 4h2l2.5 11h11L21 7H7"/></svg><span>Cart</span><b id="bc">0</b></button>
+<a href="#shop"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span>Shop</span></a>
+<button id="bCart"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/><path d="M3 4h2l2.5 11h11L21 7H7"/></svg><span>Cart</span><b id="bc">0</b></button>
+<a href="#track"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span>Account</span></a>
+<button id="bSearch"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg><span>Search</span></button>
+<b id="bw" hidden>0</b><button id="bWish" hidden></button>
 </nav>
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer" aria-label="Cart">
@@ -377,16 +446,17 @@ details p,details ul{margin:8px 0 0;color:var(--muted)}
 <script>
 {
 const P=[
-{id:'r1',d:'A single sparkling stone set high on a slim 925 band. Comes in a gift box.',dm:'Band width 2 mm',o:'gift daily',st:6,im:'photo-1562616261-7bb659f860ed',n:'Gift Box Solitaire Ring',c:'Rings',g:4.2,mk:900,a:'ring',sz:['6','7','8','9'],nw:1},
-{id:'r2',pz:1,sale:15,d:'Hand-hammered plain band with a soft matte shine. Easy to wear every day.',dm:'Band width 4 mm',o:'daily',st:8,im:'photo-1620968867360-5cda83d2bffd',n:'Handcrafted Band Ring',c:'Rings',g:3.1,mk:600,a:'ring',sz:['6','7','8','9','10']},
+{id:'r1',d:'A single sparkling stone set high on a slim 925 band. Comes in a gift box.',dm:'Band width 2 mm',o:'gift daily',st:6,im:'photo-1591209608777-fb022eac7112',n:'Gift Box Solitaire Ring',c:'Rings',g:4.2,mk:900,a:'ring',sz:['6','7','8','9'],nw:1},
+{id:'r2',pz:1,sale:15,d:'Hand-hammered plain band with a soft matte shine. Easy to wear every day.',dm:'Band width 4 mm',o:'daily',st:8,im:'photo-1705854937134-dd130d90df5d',n:'Handcrafted Band Ring',c:'Rings',g:3.1,mk:600,a:'ring',sz:['6','7','8','9','10']},
+{id:'r5',d:'Round zircon halo around a bright centre stone on a slim band.',dm:'Top 8 mm',o:'gift bridal',st:4,im:'photo-1590703160323-ac5d3fc14089',n:'Zircon Halo Ring',c:'Rings',g:4.4,mk:1300,a:'ring',sz:['6','7','8','9'],nw:1},
 {id:'r3',d:'Oval blue stone framed in silver with fine side detail.',dm:'Stone 9 × 7 mm',o:'gift',st:3,im:'photo-1586104237516-5b7075e00d45',n:'Blue Stone Ring',c:'Rings',g:4.8,mk:1000,a:'ring',sz:['6','7','8'],nw:1},
-{id:'r4',d:'Two twisted silver wires joined into one light ring.',dm:'Band width 3 mm',o:'daily',st:5,im:'photo-1595538934869-503c9448981b',n:'Twist Silver Ring',c:'Rings',g:3.6,mk:700,a:'ring',sz:['6','7','8','9']},
+{id:'r4',d:'Two twisted silver wires joined into one light ring.',dm:'Band width 3 mm',o:'daily',st:5,im:'photo-1687858477667-d5dc55100409',n:'Twist Silver Ring',c:'Rings',g:3.6,mk:700,a:'ring',sz:['6','7','8','9']},
 {id:'e1',sale:20,d:'Traditional oxidised jhumkay with a gold-tone touch and hanging beads.',dm:'Length 5 cm',o:'bridal gift',st:4,im:'photo-1714733831162-0a6e849141be',n:'Oxidised Jhumkay',c:'Earrings',g:9.5,mk:1800,a:'jhumka',nw:1},
 {id:'e2',d:'Ethnic silver jhumkay with fine carving, light enough for long wear.',dm:'Length 4.5 cm',o:'bridal',st:2,im:'photo-1659727640714-7e9a1d8b31cb',n:'Ethnic Silver Jhumkay',c:'Earrings',g:11.2,mk:2200,a:'jhumka'},
 {id:'e3',d:'Polished round hoops with a click lock.',dm:'Diameter 2.5 cm',o:'daily',st:10,im:'photo-1765464281313-b3844388b316',n:'Silver Hoop Baliyan',c:'Earrings',g:5.4,mk:900,a:'hoop'},
-{id:'e4',d:'Small drop earrings that catch the light as you move.',dm:'Length 3 cm',o:'daily gift',st:0,im:'photo-1693212793204-bcea856c75fe',n:'Drop Earrings',c:'Earrings',g:6.2,mk:1100,a:'hoop',nw:1},
+{id:'e4',d:'Small drop earrings that catch the light as you move.',dm:'Length 3 cm',o:'daily gift',st:0,im:'photo-1713004539634-a6694a83f3d9',n:'Drop Earrings',c:'Earrings',g:6.2,mk:1100,a:'hoop',nw:1},
 {id:'n1',sale:10,d:'Slim silver chain with a polished pendant.',dm:'Chain 18 in (45 cm)',o:'daily gift',st:7,im:'photo-1605897166509-862b9122111a',n:'Pendant Chain',c:'Necklaces',g:8.6,mk:1500,a:'pendant'},
-{id:'n2',d:'Heart pendant on a fine 925 chain, a classic gift.',dm:'Chain 16 in (40 cm), pendant 1.5 cm',o:'gift',st:5,im:'photo-1676485261309-784d67817972',n:'Heart Pendant Necklace',c:'Necklaces',g:7.3,mk:1400,a:'pendant',nw:1},
+{id:'n2',d:'Heart pendant on a fine 925 chain, a classic gift.',dm:'Chain 16 in (40 cm), pendant 1.5 cm',o:'gift',st:5,im:'photo-1590845947379-6c663322efea',n:'Round Silver Pendant',c:'Necklaces',g:7.3,mk:1400,a:'pendant',nw:1},
 {id:'b1',d:'Link chain bracelet with a lobster clasp.',dm:'See size guide',o:'daily gift',st:6,im:'photo-1559329145-ecbff8d919b2',n:'Silver Chain Bracelet',c:'Bracelets',g:12.0,mk:1700,a:'bracelet',sz:['S','M','L']},
 {id:'b2',sale:10,d:'A pair of smooth silver bangles that sound soft together.',dm:'See size guide',o:'bridal daily',st:3,im:'photo-1517857399767-a9dc28f5a734',n:'Silver Bangles (pair)',c:'Bracelets',g:18.5,mk:2400,a:'bracelet',sz:['2.4','2.6','2.8']},
 {id:'p1',d:'Delicate silver payal with small ghungroo bells.',dm:'Length 10 in (25 cm), adjustable',o:'bridal',st:4,im:'photo-1635770607507-beb7d7972491',n:'Silver Payal',c:'Payal',g:22.0,mk:2800,a:'payal'},
@@ -405,7 +475,7 @@ const SOC=[['Facebook','https://www.facebook.com/','<path d="M15 3h-2.5A3.5 3.5 
 const OCC=[['Bridal','photo-1631248622996-ac90313ddc2b'],['Daily wear','photo-1620968867360-5cda83d2bffd'],['Gifts','photo-1676485261309-784d67817972'],['Under Rs 3,000','photo-1765464281313-b3844388b316'],['Men','photo-1594588268457-82c37b451d53']];
 const OKEY={'Bridal':'bridal','Daily wear':'daily','Gifts':'gift','Men':'men'};
 const CARE='<ul><li>Keep in the zip pouch or box when not wearing.</li><li>Put on after perfume and make-up, take off before bathing or swimming.</li><li>If it darkens, rub gently with a soft silver cloth.</li></ul>';
-const POL={ship:['Shipping policy','<p>We deliver all over Pakistan by courier.</p><table><thead><tr><th>City</th><th class="n">Delivery time</th></tr></thead><tbody><tr><td>Karachi</td><td class="n">1–2 working days</td></tr><tr><td>Lahore, Islamabad, Rawalpindi, Hyderabad</td><td class="n">2–3 working days</td></tr><tr><td>All other cities</td><td class="n">3–5 working days</td></tr></tbody></table><p>Delivery is free on orders above Rs 10,000, otherwise a flat charge applies, shown at checkout. You get a tracking number once your parcel is dispatched.</p>'],ret:['Return & exchange','<p>You can exchange any piece within 7 days of delivery if it is unused, undamaged and in its original box. Send us a WhatsApp message with your order number to start.</p><p>If a piece is not 925 silver, we refund the full amount. Personalised and sale items cannot be exchanged.</p><h3>Buyback</h3><p>Sell any Chandni piece back with its certificate: we pay 80% of the silver value at that day\'s rate in cash, or 100% as exchange credit.</p><h3>Warranty</h3><p>Free lifetime replating. 6-month warranty on stones, clasps and locks against making faults (not loss or damage).</p>'],priv:['Privacy policy','<p>We collect your name, phone number and address only to deliver your order and contact you about it.</p><p>We never sell or share your details with anyone except the courier company delivering your parcel. Payments by JazzCash or Easypaisa are handled by those services; we do not see or store your account details.</p>'],terms:['Terms of service','<p>Prices are worked out from the weight of each piece and the silver rate on the day you order, plus a making charge. The final price is the one confirmed with you on WhatsApp.</p><p>An order is confirmed once we reply to your WhatsApp message. Photos are for guidance; handmade pieces can vary slightly in weight and look.</p>']};
+const POL={after:['After sale service','<p>Bring or send any Chandni piece for free cleaning, polishing and replating for life. Loose stones, broken clasps and chain repairs are fixed at cost; we tell you the charge on WhatsApp before we start.</p>'],how:['How to order','<ol><li>Pick a piece and tap Quick shop, or Quick view to choose size and finish.</li><li>Open the cart and tap Checkout.</li><li>Fill in your name, phone and address, then tap Place order on WhatsApp.</li><li>Send the WhatsApp message. We confirm your order and the final price.</li><li>Pay cash when the parcel arrives, or by JazzCash or Easypaisa.</li></ol>'],care:['Jewelry care',CARE],ship:['Shipping policy','<p>We deliver all over Pakistan by courier.</p><table><thead><tr><th>City</th><th class="n">Delivery time</th></tr></thead><tbody><tr><td>Karachi</td><td class="n">1–2 working days</td></tr><tr><td>Lahore, Islamabad, Rawalpindi, Hyderabad</td><td class="n">2–3 working days</td></tr><tr><td>All other cities</td><td class="n">3–5 working days</td></tr></tbody></table><p>Delivery is free on orders above Rs 10,000, otherwise a flat charge applies, shown at checkout. You get a tracking number once your parcel is dispatched.</p>'],ret:['Return & exchange','<p>You can exchange any piece within 7 days of delivery if it is unused, undamaged and in its original box. Send us a WhatsApp message with your order number to start.</p><p>If a piece is not 925 silver, we refund the full amount. Personalised and sale items cannot be exchanged.</p><h3>Buyback</h3><p>Sell any Chandni piece back with its certificate: we pay 80% of the silver value at that day\'s rate in cash, or 100% as exchange credit.</p><h3>Warranty</h3><p>Free lifetime replating. 6-month warranty on stones, clasps and locks against making faults (not loss or damage).</p>'],priv:['Privacy policy','<p>We collect your name, phone number and address only to deliver your order and contact you about it.</p><p>We never sell or share your details with anyone except the courier company delivering your parcel. Payments by JazzCash or Easypaisa are handled by those services; we do not see or store your account details.</p>'],terms:['Terms of service','<p>Prices are worked out from the weight of each piece and the silver rate on the day you order, plus a making charge. The final price is the one confirmed with you on WhatsApp.</p><p>An order is confirmed once we reply to your WhatsApp message. Photos are for guidance; handmade pieces can vary slightly in weight and look.</p>']};
 const FAQ=[['Is your jewellery real silver?','Yes. Every piece is 925 sterling silver: 92.5% pure silver mixed with a little copper for strength. Each piece is stamped 925 and comes with a certificate of authenticity.'],
 ['How is the price worked out?','Price = weight in grams × today\'s silver rate per gram + a fixed making charge. When the silver rate changes, prices change too. The rate is shown at the top of the site.'],
 ['What is the difference between plain, rhodium, oxidised and gold plated?','Plain silver is the natural white shine. Rhodium plating adds a bright mirror finish and slows tarnishing. Oxidised silver is darkened on purpose for an antique look. Gold plated pieces are 925 silver with a layer of gold on top.'],
@@ -423,7 +493,7 @@ const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v)
 let cfg=Object.assign({hist:null,min:0,rate:6500,del:250,wa:'923001234567',code:'EID10',off:10,gift:300,pin:'1234'},store.get('cs_cfg',{}));
 let stockO=store.get('cs_stock',{});const stockOf=p=>stockO[p.id]??p.st;
 let cart=store.get('cs_cart',[]),wish=store.get('cs_wish',[]),revs=store.get('cs_rev',{}),orders=store.get('cs_orders',[]);
-let cat='All',q='',sort='',applied='',pr='';
+let cat='All',q='',sort='',applied='',pr='',shown=12,inStock=false,saleOnly=false;
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 const rs=n=>'Rs '+Math.round(n).toLocaleString('en-PK');
@@ -432,7 +502,7 @@ const base=p=>Math.round((p.g*perG()+p.mk)/10)*10;
 const price=p=>p.sale?Math.round(base(p)*(1-p.sale/100)/10)*10:base(p);
 const FIN={'Plain silver':0,'Rhodium plated':400,'Oxidised':0,'Gold plated':900};
 const ENG=800;
-const offers=()=>[{code:String(cfg.code||'').toUpperCase(),pct:+cfg.off||0,min:+cfg.min||0},{code:'FLAT500',flat:500,min:8000}].filter(o=>o.code);
+const offers=()=>[{code:String(cfg.code||'').toUpperCase(),pct:+cfg.off||0,min:+cfg.min||0},{code:'FLAT500',flat:500,min:8000},{code:'WELCOME5',pct:5,min:0}].filter(o=>o.code);
 const findOffer=c=>offers().find(o=>o.code===c);
 const lineP=l=>price(byId(l.id))+(FIN[l.fin]||0)+(l.txt?ENG:0);
 const sku=p=>'CS-'+p.id.toUpperCase()+String(Math.round(p.g*10)).padStart(3,'0');
@@ -452,25 +522,31 @@ bracelet:`${shadow}<ellipse cx="100" cy="110" rx="66" ry="34" fill="none" stroke
 payal:`${shadow}<path d="M24 90 Q62 120 100 90 T176 90" fill="none" stroke="url(#sv)" stroke-width="4" stroke-dasharray="2 5" stroke-linecap="round"/>`,
 set:`${shadow}<path d="M34 28 Q100 150 166 28" fill="none" stroke="url(#sv)" stroke-width="6" stroke-dasharray="1 8" stroke-linecap="round"/><circle cx="100" cy="112" r="10" fill="#c23b5a"/>`
 };
-const art=p=>`<svg viewBox="0 0 200 200" role="img" aria-label="${esc(p.n)}" style="background:radial-gradient(80% 80% at 50% 35%,#5d1a30,#2b0b16)">${p.s?ART[p.a].replace('#c23b5a',p.s):ART[p.a]}</svg>`;
+const art=p=>`<svg viewBox="0 0 200 200" role="img" aria-label="${esc(p.n)}" style="background:#f6f5f3">${p.s?ART[p.a].replace('#c23b5a',p.s):ART[p.a]}</svg>`;
 const pic=(p,w,z)=>!p.im?art(p):`<img src="${U(p.im,w||600,z)}" alt="${esc(p.n)}" loading="lazy" data-fb="${p.id}">`;
 const heartSvg='<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>';
 const avg=id=>{const r=revs[id]||[];return r.length?{a:r.reduce((s,x)=>s+x.r,0)/r.length,n:r.length}:null};
 const starStr=a=>'★★★★★'.slice(0,Math.round(a))+'☆☆☆☆☆'.slice(0,5-Math.round(a));
 
 const stockTxt=p=>{const n=stockOf(p);return n<=0?'<span class="stock">Sold out</span>':n<=3?`<span class="stock">Only ${n} left</span>`:''};
-const card=p=>{const v=avg(p.id),so=stockOf(p)<=0;return `<article class="card${so?' sold':''}"><button class="pad" data-open="${p.id}" aria-label="View ${esc(p.n)}">${pic(p)}</button>${p.sale?`<span class="tag sale">−${p.sale}%</span>`:p.nw?'<span class="tag">New</span>':''}<button class="heart" data-wish="${p.id}" aria-label="Save to wishlist" aria-pressed="${wish.includes(p.id)}">${heartSvg}</button><div class="info"><h3>${esc(p.n)}</h3><div class="meta">${esc(p.c)} · ${p.g} g · 925 silver</div>${v?`<div class="stars" aria-label="${v.a.toFixed(1)} of 5">${starStr(v.a)} <span class="meta">(${v.n})</span></div>`:''}${stockTxt(p)}<div class="row"><div class="price">${priceHtml(p)}</div><button class="add" data-open="${p.id}" ${so?'disabled':''}>${so?'Sold out':'Add'}</button></div></div></article>`};
+const card=p=>{const v=avg(p.id),so=stockOf(p)<=0;return `<article class="card${so?' sold':''}"><button class="pad" data-open="${p.id}" aria-label="View ${esc(p.n)}">${pic(p)}</button>${p.sale?`<span class="tag sale">−${p.sale}%</span>`:p.nw?'<span class="tag">New</span>':''}<button class="heart" data-wish="${p.id}" aria-label="Save to wishlist" aria-pressed="${wish.includes(p.id)}">${heartSvg}</button><div class="info"><h3>${esc(p.n)}</h3><div class="meta">${esc(p.c)} · ${p.g} g · 925 silver</div>${v?`<div class="stars" aria-label="${v.a.toFixed(1)} of 5">${starStr(v.a)} <span class="meta">(${v.n})</span></div>`:''}<div class="desc">${esc(p.d)}</div>${v?'':'<div class="meta">No reviews</div>'}<div class="price">${priceHtml(p)}</div>${stockTxt(p)}<div class="cbtns"><button data-open="${p.id}">Quick view</button>${so?`<button class="qs" data-pre="${p.id}">Pre-order</button>`:`<button class="qs" data-qs="${p.id}">Quick shop</button>`}</div></div></article>`};
 
 const today=()=>new Date().toISOString().slice(0,10);
 if(!cfg.hist){const h={},d=new Date(),seq=[6380,6420,6400,6450,6470,6450,6500];for(let i=6;i>=0;i--){const x=new Date(d);x.setDate(d.getDate()-i);h[x.toISOString().slice(0,10)]=seq[6-i]}cfg.hist=h}
+let annI=0;const ANN=()=>['Free cash on delivery all over Pakistan',`Free delivery on orders above Rs 10,000`,`Use code ${cfg.code||'EID10'} for ${cfg.off||10}% off`,'Every piece 925 stamped · certificate included'];
+setInterval(()=>{const a=ANN();annI=(annI+1)%a.length;$('offer').textContent=a[annI]},4000);
 function renderRate(){cfg.hist[today()]=cfg.rate;const ks=Object.keys(cfg.hist).sort().slice(-7),y=ks.length>1?cfg.hist[ks[ks.length-2]]:cfg.rate,dlt=cfg.rate-y;
 $('rateChg').innerHTML=`<span class="${dlt>=0?'up':'dn'}">${dlt>=0?'▲':'▼'} ${rs(Math.abs(dlt))}</span> <span class="meta">vs yesterday (${rs(y)})</span>`;
-$('rateHist').innerHTML=ks.slice().reverse().map(k=>`<tr><td>${new Date(k+'T00:00').toLocaleDateString('en-PK',{day:'numeric',month:'short'})}</td><td class="n">${rs(cfg.hist[k])}</td></tr>`).join('');$('rateTola').textContent=rs(cfg.rate)+' / tola';$('rateGram').textContent=rs(perG())+' per gram';$('offer').textContent=`Free delivery above Rs 10,000 · Use code ${cfg.code||'—'} for ${cfg.off||0}% off · FLAT500 on orders above Rs 8,000`;$('waText').textContent='+'+waNum()}
-function renderChips(){const cats=['All','New','Sale','Wishlist',...new Set(P.map(p=>p.c))];if(!cats.includes(cat))cats.push(cat);$('chips').innerHTML=cats.map(c=>`<button data-c="${esc(c)}" aria-pressed="${c===cat}">${c==='Wishlist'?'♡ ':''}${esc(c)}</button>`).join('')}
+$('rateHist').innerHTML=ks.slice().reverse().map(k=>`<tr><td>${new Date(k+'T00:00').toLocaleDateString('en-PK',{day:'numeric',month:'short'})}</td><td class="n">${rs(cfg.hist[k])}</td></tr>`).join('');$('rateTola').textContent=rs(cfg.rate)+' / tola';$('rateGram').textContent=rs(perG())+' per gram';$('waText').textContent='+'+waNum()}
+const CATL={'Sets':'Bridal & Necklace Sets','Earrings':'Tops & Earrings','Bracelets':'Bangles & Bracelets','Islamic':'Calligraphy Pendants','Necklaces':'Mala & Pendants','All':'All Silver','Customized':'Customized'};
+function renderChips(){const cats=['All','New','Sale','Sets','Necklaces','Earrings','Bracelets','Islamic','Aqeeq & Stones','Payal','Rings','Men','Customized'];if(!cats.includes(cat))cats.push(cat);$('chips').innerHTML=cats.map(c=>`<button data-c="${esc(c)}" aria-pressed="${c===cat}">${esc(CATL[c]||c)}</button>`).join('')}
 function renderGrid(){
 let list=P.filter(p=>(cat==='All'||p.c===cat||(cat==='New'&&p.nw)||(cat==='Wishlist'&&wish.includes(p.id))||(OKEY[cat]&&p.o.split(' ').includes(OKEY[cat]))||(cat==='Under Rs 3,000'&&price(p)<3000)||(cat==='Sale'&&p.sale))&&(!q||(p.n+' '+p.c).toLowerCase().includes(q)));
 if(pr){const [a,b]=pr.split('-').map(Number);list=list.filter(p=>price(p)>=a&&price(p)<b)}
-if(sort==='lo')list.sort((a,b)=>price(a)-price(b));if(sort==='hi')list.sort((a,b)=>price(b)-price(a));if(sort==='w')list.sort((a,b)=>a.g-b.g);
+if(inStock)list=list.filter(p=>stockOf(p)>0);if(saleOnly)list=list.filter(p=>p.sale);
+const ix=p=>P.indexOf(p);
+if(sort==='lo')list.sort((a,b)=>price(a)-price(b));if(sort==='hi')list.sort((a,b)=>price(b)-price(a));if(sort==='az')list.sort((a,b)=>a.n.localeCompare(b.n));if(sort==='za')list.sort((a,b)=>b.n.localeCompare(a.n));if(sort==='best')list.sort((a,b)=>stockOf(a)-stockOf(b));if(sort==='old')list.sort((a,b)=>ix(a)-ix(b));if(sort==='new')list.sort((a,b)=>ix(b)-ix(a));
+const total=list.length;list=list.slice(0,shown);$('count').textContent=`Showing ${list.length} of ${total} products`;$('more').hidden=list.length>=total;
 $('grid').innerHTML=list.length?list.map(card).join(''):`<p class="empty">${cat==='Wishlist'?'Your wishlist is empty. Tap ♡ on any piece to save it.':'Nothing found. Try another word or category.'}</p>`;
 $('rail').innerHTML=P.filter(p=>p.nw).map(card).join('');
 $('wcount').textContent=wish.length;$('bw').textContent=wish.length;
@@ -509,7 +585,7 @@ $('mclose').onclick=closeAll;
 }
 function toggleWish(id){wish=wish.includes(id)?wish.filter(x=>x!==id):[...wish,id];store.set('cs_wish',wish);renderGrid()}
 function addToCart(id,size,fin,txt){if(stockOf(byId(id))<=0)return;track('AddToCart',{content_ids:[id],value:price(byId(id)),currency:'PKR'});fin=fin||'Plain silver';txt=txt||'';const l=cart.find(x=>x.id===id&&x.size===size&&x.fin===fin&&(x.txt||'')===txt);l?l.qty++:cart.push({id,size,fin,txt,qty:1});save()}
-function save(){store.set('cs_cart',cart);const n=cart.reduce((a,l)=>a+l.qty,0);$('ccount').textContent=n;$('bc').textContent=n}
+function save(){store.set('cs_cart',cart);const n=cart.reduce((a,l)=>a+l.qty,0);$('ccount').textContent=n;$('bc').textContent=n;$('ctot').textContent=rs(cart.reduce((a,l)=>a+lineP(l)*l.qty,0))}
 function totals(gift){const sub=cart.reduce((a,l)=>a+lineP(l)*l.qty,0);const o=findOffer(applied);const disc=o&&sub>=o.min?(o.pct?Math.round(sub*o.pct/100):Math.min(o.flat,sub)):0;const del=sub===0||sub>=10000?0:+cfg.del||0;const g=gift?+cfg.gift||0:0;return{sub,disc,del,g,tot:sub-disc+del+g}}
 function sumHtml(t){return `<div><span>Subtotal</span><span>${rs(t.sub)}</span></div>${t.disc?`<div><span>Discount (${esc(applied)})</span><span>− ${rs(t.disc)}</span></div>`:''}<div><span>Delivery</span><span>${t.del?rs(t.del):'Free'}</span></div>${t.g?`<div><span>Gift box</span><span>${rs(t.g)}</span></div>`:''}<div class="tot"><span>Total</span><span>${rs(t.tot)}</span></div>`}
 function renderCart(){
@@ -553,11 +629,24 @@ function renderAll(){renderRate();renderGrid();if($('drawer').classList.contains
 
 $('social').innerHTML=SOC.map(([n,u,d])=>`<a href="${n==='WhatsApp'?'https://wa.me/'+waNum():u}" target="_blank" rel="noopener" data-s="${n}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg><span>${n}</span></a>`).join('');
 const toShop=()=>{const r=$('shop').getBoundingClientRect();if(r.top>innerHeight*.6||r.bottom<200)$('shop').scrollIntoView()};
-$('chips').onclick=e=>{const b=e.target.closest('button');if(!b)return;cat=b.dataset.c;renderChips();renderGrid();toShop()};
-$('q').oninput=e=>{q=e.target.value.trim().toLowerCase();renderGrid();toShop()};
-$('sort').onchange=e=>{sort=e.target.value;renderGrid()};
-$('pr').onchange=e=>{pr=e.target.value;renderGrid()};
-const gridClick=e=>{const w=e.target.closest('[data-wish]');if(w){toggleWish(w.dataset.wish);return}const b=e.target.closest('[data-open]');if(b)openProduct(b.dataset.open)};
+$('chips').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.c==='Customized'){$('custom').scrollIntoView();return}cat=b.dataset.c;shown=12;renderChips();renderGrid();toShop()};
+$('more').onclick=()=>{shown+=12;renderGrid()};
+$('q').oninput=e=>{q=e.target.value.trim().toLowerCase();shown=12;renderGrid();toShop()};
+const openSearch=()=>{$('sbar').hidden=!$('sbar').hidden;if(!$('sbar').hidden){scrollTo({top:0});$('q').focus()}};$('sBtn').onclick=openSearch;$('bSearch').onclick=()=>{$('sbar').hidden=true;openSearch()};
+$('sort').onchange=e=>{sort=e.target.value;shown=12;renderGrid()};
+$('fBtn').onclick=()=>{const cats=['All','Sets','Necklaces','Earrings','Bracelets','Islamic','Aqeeq & Stones','Payal','Rings','Men'];
+$('mbox').innerHTML=`<form class="fpanel" id="fform"><h2 style="font-size:28px">Filter</h2>
+<fieldset><legend>Category</legend>${cats.map(c=>`<label><input type="radio" name="c" value="${esc(c)}" ${c===cat?'checked':''}>${esc(CATL[c]||c)}</label>`).join('')}</fieldset>
+<fieldset><legend>Price</legend>${[['','Any price'],['0-3000','Under Rs 3,000'],['3000-6000','Rs 3,000 – 6,000'],['6000-10000','Rs 6,000 – 10,000'],['10000-1e9','Above Rs 10,000']].map(([v,t])=>`<label><input type="radio" name="p" value="${v}" ${v===pr?'checked':''}>${t}</label>`).join('')}</fieldset>
+<fieldset><legend>Availability</legend><label><input type="checkbox" name="s" ${inStock?'checked':''}>In stock only</label><label><input type="checkbox" name="o" ${saleOnly?'checked':''}>On sale</label></fieldset>
+<div class="code"><button class="btn" style="flex:1">Apply</button><button type="button" class="btn ghost" id="fclr">Clear</button></div></form>`;
+$('modal').classList.add('on');$('scrim').classList.add('on');
+$('fform').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target);cat=f.get('c')||'All';pr=f.get('p')||'';inStock=!!f.get('s');saleOnly=!!f.get('o');shown=12;renderChips();renderGrid();closeAll()};
+$('fclr').onclick=()=>{cat='All';pr='';inStock=false;saleOnly=false;shown=12;renderChips();renderGrid();closeAll()}};
+$('nform').onsubmit=e=>{e.preventDefault();$('nres').innerHTML='<p class="ok" style="margin:6px 0 0">Thank you! Your 5% code: <b>WELCOME5</b></p>';e.target.reset()};
+const gridClick=e=>{const w=e.target.closest('[data-wish]');if(w){toggleWish(w.dataset.wish);return}
+const qs=e.target.closest('[data-qs]');if(qs){const p=byId(qs.dataset.qs);if(p.sz||p.pz){openProduct(p.id)}else{addToCart(p.id,'','Plain silver');openCart()}return}
+const pre=e.target.closest('[data-pre]');if(pre){const p=byId(pre.dataset.pre);open('https://wa.me/'+waNum()+'?text='+encodeURIComponent('Assalam o Alaikum, I want to pre-order '+p.n+' ('+sku(p)+').'),'_blank');return}const b=e.target.closest('[data-open]');if(b)openProduct(b.dataset.open)};
 $('grid').onclick=gridClick;$('rail').onclick=gridClick;
 $('rPrev').onclick=()=>$('rail').scrollBy({left:-260,behavior:'smooth'});$('rNext').onclick=()=>$('rail').scrollBy({left:260,behavior:'smooth'});
 $('dbody').onclick=e=>{const b=e.target.closest('[data-q]');if(!b)return;const l=cart[+b.dataset.q];l.qty+=+b.dataset.d;if(l.qty<1)cart.splice(+b.dataset.q,1);save();renderCart()};
@@ -575,7 +664,7 @@ $('jgrid').innerHTML=JOURNAL.map(([t,m],i)=>`<button class="jcard" data-j="${i}"
 $('jgrid').onclick=e=>{const b=e.target.closest('[data-j]');if(!b)return;const [t,m,h]=JOURNAL[+b.dataset.j];$('mbox').innerHTML=`<div class="ptxt"><div class="meta">${m}</div><h2>${t}</h2>${h}<button class="btn ghost" id="pclose">Close</button></div>`;$('modal').classList.add('on');$('scrim').classList.add('on');$('pclose').onclick=closeAll};
 $('vform').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target);const m=`Video call request – Chandni Silver\nName: ${f.get('n')}\nPhone: ${f.get('p')}\nDate: ${f.get('d')}\nTime: ${f.get('t')}${f.get('w')?'\nWants to see: '+f.get('w'):''}`;track('Contact');$('vres').innerHTML=`<p class="meta">Tap to send your request on WhatsApp. We will confirm the time.</p><a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/${waNum()}?text=${encodeURIComponent(m)}">Send on WhatsApp</a>`};
 $('cuform').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target);const m=`Custom order request – Chandni Silver\nName: ${f.get('n')}\nPhone: ${f.get('p')}\nType: ${f.get('k')}\n${f.get('b')}\nDesign: ${f.get('d')}`;$('cures').innerHTML=`<p class="meta">Tap to send on WhatsApp, then attach your design photo there.</p><a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/${waNum()}?text=${encodeURIComponent(m)}">Send on WhatsApp</a>`};
-const UR={"New": "نیا", "Shop": "خریداری", "Size guide": "سائز گائیڈ", "Track order": "آرڈر ٹریک کریں", "Custom order": "اپنی مرضی کا آرڈر", "FAQ": "سوالات", "About": "ہمارے بارے میں", "Contact": "رابطہ", "Pure 925 silver jewellery, priced by today's rate": "خالص 925 چاندی کے زیورات، آج کے ریٹ پر", "Rings, jhumkay, necklaces, bracelets and payal in sterling silver. Every price comes from the item's weight and today's silver rate, so you always pay a fair price.": "انگوٹھیاں، جھمکے، ہار، بریسلیٹ اور پائل، سب اسٹرلنگ چاندی میں۔ ہر چیز کی قیمت اس کے وزن اور آج کے چاندی کے ریٹ سے بنتی ہے، تاکہ آپ ہمیشہ مناسب قیمت ادا کریں۔", "Shop now": "ابھی خریدیں", "New arrivals": "نئی آمد", "Shop by occasion": "موقع کے حساب سے خریدیں", "Find the right piece faster.": "صحیح چیز جلدی ڈھونڈیں۔", "Bridal": "دلہن", "Daily wear": "روزانہ پہننے کے لیے", "Gifts": "تحائف", "Under Rs 3,000": "3,000 روپے سے کم", "Men": "مرد", "Fresh pieces added this week.": "اس ہفتے کے نئے ڈیزائن۔", "The collection": "کلیکشن", "All": "سب", "Sale": "سیل", "♡ Wishlist": "♡ پسندیدہ", "Wishlist": "پسندیدہ", "Rings": "انگوٹھیاں", "Earrings": "بالیاں", "Necklaces": "ہار", "Bracelets": "بریسلیٹ", "Payal": "پائل", "Sets": "سیٹ", "Aqeeq & Stones": "عقیق اور پتھر", "Islamic": "اسلامی", "Any price": "کوئی بھی قیمت", "Under Rs 3,000 ": "3,000 روپے سے کم", "Sort: featured": "ترتیب: نمایاں", "Price: low to high": "قیمت: کم سے زیادہ", "Price: high to low": "قیمت: زیادہ سے کم", "Weight: light first": "وزن: ہلکا پہلے", "Add": "شامل کریں", "Sold out": "ختم ہو گیا", "Certificate of authenticity": "اصلیت کا سرٹیفکیٹ", "We buy it back": "ہم واپس خریدتے ہیں", "Lifetime shine": "عمر بھر چمک", "7-day exchange": "7 دن میں تبدیلی", "Cash on delivery": "کیش آن ڈیلیوری", "Gift wrapping": "گفٹ پیکنگ", "Every order comes with a signed card stating the metal, weight and 925 purity. Skin-friendly and nickel-free.": "ہر آرڈر کے ساتھ دستخط شدہ کارڈ ملتا ہے جس پر دھات، وزن اور 925 خالصیت لکھی ہوتی ہے۔ جلد کے لیے محفوظ، نکل سے پاک۔", "Sell any Chandni piece back to us any time: 80% of its silver value at that day's rate in cash, or 100% as exchange credit.": "چاندنی کی کوئی بھی چیز کبھی بھی ہمیں واپس بیچیں: اُس دن کے ریٹ پر چاندی کی قیمت کا 80% نقد، یا 100% نئی چیز کے لیے کریڈٹ۔", "Free replating for life, plus a 6-month warranty on stones, clasps and locks.": "عمر بھر مفت پالش، اور پتھر، کنڈی اور تالے پر 6 ماہ کی وارنٹی۔", "Size not right? Exchange within 7 days of delivery, unused and in its box.": "سائز ٹھیک نہیں؟ ڈیلیوری کے 7 دن کے اندر تبدیل کریں، بغیر استعمال کے اور ڈبے میں۔", "COD all over Pakistan, or pay by JazzCash or Easypaisa.": "پورے پاکستان میں کیش آن ڈیلیوری، یا جیز کیش اور ایزی پیسہ سے ادائیگی۔", "Add a velvet gift box at checkout and we'll pack it ready to give.": "چیک آؤٹ پر مخملی گفٹ باکس شامل کریں، ہم اسے تحفے کے لیے تیار پیک کریں گے۔", "Measure the inside of a ring or bangle that already fits you, edge to edge, in millimetres. Then pick the size below. Still unsure? Send us a photo on WhatsApp.": "جو انگوٹھی یا چوڑی آپ کو پوری آتی ہے، اس کا اندرونی حصہ ملی میٹر میں ناپیں، پھر نیچے سے سائز چنیں۔ پھر بھی یقین نہیں؟ واٹس ایپ پر تصویر بھیجیں۔", "Rings (US size)": "انگوٹھیاں (US سائز)", "Bangles": "چوڑیاں", "Size": "سائز", "Inside width": "اندرونی چوڑائی", "Track your order": "اپنا آرڈر ٹریک کریں", "Enter your order number (like CS-1234) or the phone number you ordered with.": "اپنا آرڈر نمبر (جیسے CS-1234) یا وہ فون نمبر لکھیں جس سے آرڈر کیا تھا۔", "Track": "ٹریک کریں", "See it on video call": "ویڈیو کال پر دیکھیں", "Want to see a piece live before buying? Book a WhatsApp video call and we will show it to you from the shop.": "خریدنے سے پہلے چیز لائیو دیکھنا چاہتے ہیں؟ واٹس ایپ ویڈیو کال بک کریں، ہم دکان سے دکھائیں گے۔", "Book video call": "ویڈیو کال بک کریں", "Have a design in mind? Tell us and our karigars will make it for you in 925 silver.": "کوئی ڈیزائن ذہن میں ہے؟ ہمیں بتائیں، ہمارے کاریگر اسے 925 چاندی میں بنائیں گے۔", "Send request": "درخواست بھیجیں", "Questions people ask": "اکثر پوچھے جانے والے سوالات", "Silver journal": "چاندی کی ڈائری", "Short guides to buying and caring for silver.": "چاندی خریدنے اور سنبھالنے کی مختصر رہنمائی۔", "Read": "پڑھیں", "About Chandni Silver": "چاندنی سلور کے بارے میں", "Follow us": "ہمیں فالو کریں", "Help": "مدد", "Policies": "پالیسیاں", "Shipping policy": "شپنگ پالیسی", "Return & exchange": "واپسی اور تبدیلی", "Privacy policy": "پرائیویسی پالیسی", "Terms of service": "شرائط", "About us": "ہمارے بارے میں", "Checkout": "چیک آؤٹ", "Subtotal": "ذیلی کل", "Delivery": "ڈیلیوری", "Total": "کل", "Free": "مفت", "Your cart is empty.": "آپ کی ٹوکری خالی ہے۔", "Place order on WhatsApp": "واٹس ایپ پر آرڈر کریں", "Add to cart": "ٹوکری میں ڈالیں", "Close": "بند کریں", "Full name": "پورا نام", "Phone": "فون", "City": "شہر", "Address": "پتہ", "Payment": "ادائیگی", "Discount code": "ڈسکاؤنٹ کوڈ", "Apply": "لگائیں", "Back to cart": "واپس ٹوکری میں", "Cart": "ٹوکری", "Home": "ہوم", "Last 7 days": "پچھلے 7 دن", "Your name": "آپ کا نام", "Search rings, jhumkay…": "انگوٹھی، جھمکے تلاش کریں…", "Details": "تفصیل", "Caring for your silver": "چاندی کی دیکھ بھال", "Delivery & exchange": "ڈیلیوری اور تبدیلی", "Reviews": "ریویوز", "Post review": "ریویو لکھیں", "Finish": "فنش", "Use": "لگائیں", "Tap the photo to zoom.": "زوم کے لیے تصویر پر ٹیپ کریں۔", "Handmade 925 silver jewellery": "ہاتھ سے بنے 925 چاندی کے زیورات", "Cash on delivery all over Pakistan": "پورے پاکستان میں کیش آن ڈیلیوری"};
+const UR={"Silver Jewelry":"چاندی کے زیورات","Filter":"فلٹر","Load more":"مزید دیکھیں","Quick view":"جلدی دیکھیں","Quick shop":"جلدی خریدیں","Pre-order":"پری آرڈر","Free shipping across Pakistan":"پورے پاکستان میں مفت شپنگ","Easy returns & exchange":"آسان واپسی اور تبدیلی","24-hour support":"24 گھنٹے سپورٹ","No reviews":"کوئی ریویو نہیں","Tops & Earrings":"ٹاپس اور بالیاں","Bangles & Bracelets":"چوڑیاں اور بریسلیٹ","Calligraphy Pendants":"خطاطی کے لاکٹ","Mala & Pendants":"مالا اور لاکٹ","Bridal & Necklace Sets":"دلہن اور ہار کے سیٹ","Customized":"اپنی مرضی کا","All Silver":"تمام چاندی","Account":"اکاؤنٹ","Search":"تلاش","Contact us":"ہم سے رابطہ","Quick links":"فوری لنکس","Information":"معلومات","Newsletter":"نیوز لیٹر","Subscribe":"سبسکرائب","Sort by":"ترتیب","Featured":"نمایاں","New": "نیا", "Shop": "خریداری", "Size guide": "سائز گائیڈ", "Track order": "آرڈر ٹریک کریں", "Custom order": "اپنی مرضی کا آرڈر", "FAQ": "سوالات", "About": "ہمارے بارے میں", "Contact": "رابطہ", "Pure 925 silver jewellery, priced by today's rate": "خالص 925 چاندی کے زیورات، آج کے ریٹ پر", "Rings, jhumkay, necklaces, bracelets and payal in sterling silver. Every price comes from the item's weight and today's silver rate, so you always pay a fair price.": "انگوٹھیاں، جھمکے، ہار، بریسلیٹ اور پائل، سب اسٹرلنگ چاندی میں۔ ہر چیز کی قیمت اس کے وزن اور آج کے چاندی کے ریٹ سے بنتی ہے، تاکہ آپ ہمیشہ مناسب قیمت ادا کریں۔", "Shop now": "ابھی خریدیں", "New arrivals": "نئی آمد", "Shop by occasion": "موقع کے حساب سے خریدیں", "Find the right piece faster.": "صحیح چیز جلدی ڈھونڈیں۔", "Bridal": "دلہن", "Daily wear": "روزانہ پہننے کے لیے", "Gifts": "تحائف", "Under Rs 3,000": "3,000 روپے سے کم", "Men": "مرد", "Fresh pieces added this week.": "اس ہفتے کے نئے ڈیزائن۔", "The collection": "کلیکشن", "All": "سب", "Sale": "سیل", "♡ Wishlist": "♡ پسندیدہ", "Wishlist": "پسندیدہ", "Rings": "انگوٹھیاں", "Earrings": "بالیاں", "Necklaces": "ہار", "Bracelets": "بریسلیٹ", "Payal": "پائل", "Sets": "سیٹ", "Aqeeq & Stones": "عقیق اور پتھر", "Islamic": "اسلامی", "Any price": "کوئی بھی قیمت", "Under Rs 3,000 ": "3,000 روپے سے کم", "Sort: featured": "ترتیب: نمایاں", "Price: low to high": "قیمت: کم سے زیادہ", "Price: high to low": "قیمت: زیادہ سے کم", "Weight: light first": "وزن: ہلکا پہلے", "Add": "شامل کریں", "Sold out": "ختم ہو گیا", "Certificate of authenticity": "اصلیت کا سرٹیفکیٹ", "We buy it back": "ہم واپس خریدتے ہیں", "Lifetime shine": "عمر بھر چمک", "7-day exchange": "7 دن میں تبدیلی", "Cash on delivery": "کیش آن ڈیلیوری", "Gift wrapping": "گفٹ پیکنگ", "Every order comes with a signed card stating the metal, weight and 925 purity. Skin-friendly and nickel-free.": "ہر آرڈر کے ساتھ دستخط شدہ کارڈ ملتا ہے جس پر دھات، وزن اور 925 خالصیت لکھی ہوتی ہے۔ جلد کے لیے محفوظ، نکل سے پاک۔", "Sell any Chandni piece back to us any time: 80% of its silver value at that day's rate in cash, or 100% as exchange credit.": "چاندنی کی کوئی بھی چیز کبھی بھی ہمیں واپس بیچیں: اُس دن کے ریٹ پر چاندی کی قیمت کا 80% نقد، یا 100% نئی چیز کے لیے کریڈٹ۔", "Free replating for life, plus a 6-month warranty on stones, clasps and locks.": "عمر بھر مفت پالش، اور پتھر، کنڈی اور تالے پر 6 ماہ کی وارنٹی۔", "Size not right? Exchange within 7 days of delivery, unused and in its box.": "سائز ٹھیک نہیں؟ ڈیلیوری کے 7 دن کے اندر تبدیل کریں، بغیر استعمال کے اور ڈبے میں۔", "COD all over Pakistan, or pay by JazzCash or Easypaisa.": "پورے پاکستان میں کیش آن ڈیلیوری، یا جیز کیش اور ایزی پیسہ سے ادائیگی۔", "Add a velvet gift box at checkout and we'll pack it ready to give.": "چیک آؤٹ پر مخملی گفٹ باکس شامل کریں، ہم اسے تحفے کے لیے تیار پیک کریں گے۔", "Measure the inside of a ring or bangle that already fits you, edge to edge, in millimetres. Then pick the size below. Still unsure? Send us a photo on WhatsApp.": "جو انگوٹھی یا چوڑی آپ کو پوری آتی ہے، اس کا اندرونی حصہ ملی میٹر میں ناپیں، پھر نیچے سے سائز چنیں۔ پھر بھی یقین نہیں؟ واٹس ایپ پر تصویر بھیجیں۔", "Rings (US size)": "انگوٹھیاں (US سائز)", "Bangles": "چوڑیاں", "Size": "سائز", "Inside width": "اندرونی چوڑائی", "Track your order": "اپنا آرڈر ٹریک کریں", "Enter your order number (like CS-1234) or the phone number you ordered with.": "اپنا آرڈر نمبر (جیسے CS-1234) یا وہ فون نمبر لکھیں جس سے آرڈر کیا تھا۔", "Track": "ٹریک کریں", "See it on video call": "ویڈیو کال پر دیکھیں", "Want to see a piece live before buying? Book a WhatsApp video call and we will show it to you from the shop.": "خریدنے سے پہلے چیز لائیو دیکھنا چاہتے ہیں؟ واٹس ایپ ویڈیو کال بک کریں، ہم دکان سے دکھائیں گے۔", "Book video call": "ویڈیو کال بک کریں", "Have a design in mind? Tell us and our karigars will make it for you in 925 silver.": "کوئی ڈیزائن ذہن میں ہے؟ ہمیں بتائیں، ہمارے کاریگر اسے 925 چاندی میں بنائیں گے۔", "Send request": "درخواست بھیجیں", "Questions people ask": "اکثر پوچھے جانے والے سوالات", "Silver journal": "چاندی کی ڈائری", "Short guides to buying and caring for silver.": "چاندی خریدنے اور سنبھالنے کی مختصر رہنمائی۔", "Read": "پڑھیں", "About Chandni Silver": "چاندنی سلور کے بارے میں", "Follow us": "ہمیں فالو کریں", "Help": "مدد", "Policies": "پالیسیاں", "Shipping policy": "شپنگ پالیسی", "Return & exchange": "واپسی اور تبدیلی", "Privacy policy": "پرائیویسی پالیسی", "Terms of service": "شرائط", "About us": "ہمارے بارے میں", "Checkout": "چیک آؤٹ", "Subtotal": "ذیلی کل", "Delivery": "ڈیلیوری", "Total": "کل", "Free": "مفت", "Your cart is empty.": "آپ کی ٹوکری خالی ہے۔", "Place order on WhatsApp": "واٹس ایپ پر آرڈر کریں", "Add to cart": "ٹوکری میں ڈالیں", "Close": "بند کریں", "Full name": "پورا نام", "Phone": "فون", "City": "شہر", "Address": "پتہ", "Payment": "ادائیگی", "Discount code": "ڈسکاؤنٹ کوڈ", "Apply": "لگائیں", "Back to cart": "واپس ٹوکری میں", "Cart": "ٹوکری", "Home": "ہوم", "Last 7 days": "پچھلے 7 دن", "Your name": "آپ کا نام", "Search rings, jhumkay…": "انگوٹھی، جھمکے تلاش کریں…", "Details": "تفصیل", "Caring for your silver": "چاندی کی دیکھ بھال", "Delivery & exchange": "ڈیلیوری اور تبدیلی", "Reviews": "ریویوز", "Post review": "ریویو لکھیں", "Finish": "فنش", "Use": "لگائیں", "Tap the photo to zoom.": "زوم کے لیے تصویر پر ٹیپ کریں۔", "Handmade 925 silver jewellery": "ہاتھ سے بنے 925 چاندی کے زیورات", "Cash on delivery all over Pakistan": "پورے پاکستان میں کیش آن ڈیلیوری"};
 let lang='en';try{lang=localStorage.getItem('cs_lang')||'en'}catch(e){}
 const ORIG=new WeakMap();
 function tr(root){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){const v=n.nodeValue,k=v.trim();if(!k)continue;if(lang==='ur'){if(UR[k]){ORIG.set(n,v);n.nodeValue=v.replace(k,UR[k])}}else if(ORIG.has(n)){n.nodeValue=ORIG.get(n);ORIG.delete(n)}}

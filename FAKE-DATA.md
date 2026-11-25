@@ -3,6 +3,8 @@
 Everything below is made up for the client demo. Replace each item with the client's real details.
 
 ## Brand and contact
+- Footer contact: info@chandnisilver.pk, 0300 1234567, 021 3456 7890; company line "Chandni Silver (Pvt) Ltd · NTN 1234567-8"
+- Newsletter code WELCOME5 (5% off) — sign-ups are not saved anywhere yet
 - Store name **Chandni Silver** and the moon logo (logo.svg, icon-512.png)
 - Brand story: "started in 1985", "two-man karigar workshop", "second generation", "15,000 families"
 - Address: Shop 12, Silver Market, Saddar, Karachi, and the Google map pin
@@ -21,7 +23,7 @@ Everything below is made up for the client demo. Replace each item with the clie
 - Admin PIN 1234
 
 ## Products
-- All 23 product names, weights, making charges, descriptions, sizes, stock counts and sale % are samples
+- All 24 product names, weights, making charges, descriptions, sizes, stock counts and sale % are samples
 - Product photos are free Unsplash photos, not the client's pieces
 - 3 aqeeq / stone rings, 3 Islamic pieces and the name pendant have drawings only (no photo)
 - Product codes (SKU) are generated automatically
